@@ -1,17 +1,16 @@
 <div style="max-width: 650px; margin: auto; line-height: 0.9;">
   <span style="color: #000000; font-family: monospace; font-size: 1.5em; letter-spacing: -0.02em;">
-    <span style="width: 15px; height: 15; background-color: #4824e4; border-radius: 50%; display: inline-block; margin-right: 10px;"></span>
     <b>Joe Bacchus George</b>
   </span>
   <br>
   <br>
   <br>
-  <span style="color: #000000; font-family: monospace; font-size: 1.2em; letter-spacing: -0.02em;">
+  <!-- <span style="color: #000000; font-family: monospace; font-size: 1.2em; letter-spacing: -0.02em;">
     <b>About me</b>
   </span>
   <br>
   <br>
-  <br>
+  <br> -->
   <span style="color: #000000; font-family: monospace; font-size: 0.8em; letter-spacing: -0.02em;">
   I am an incoming PhD student at the 
   <a href="https://www.cam.ac.uk" style="color: #4824e4; text-decoration: none;">
