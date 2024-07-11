@@ -1,4 +1,4 @@
-<div style="max-width: 650px; margin: auto; line-height: 0.9;">
+<div style="max-width: 650px; margin: auto; line-height: 1.2;">
   <span style="color: #000000; font-family: helvetica neue; font-size: 2em; letter-spacing: -0.02em;">
     <b>Joe Bacchus</b> George
   </span>
@@ -31,6 +31,11 @@
   I am also a member of
   <a href="https://www.trin.cam.ac.uk/" style="color: #4824e4; text-decoration: none;">
   <b>Trinity College</b></a>.
+  <br>
+  <br>
+  <span style="font-family: monospace; helvetica neue; color: #000000; font-size: 1.1em;">
+  joebacchusgeorge [at] gmail [dot] com
+  </span>
   </span>
   <!-- <br>
   <br>
