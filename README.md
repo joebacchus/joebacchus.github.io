@@ -1,6 +1,6 @@
 <div style="max-width: 650px; margin: auto; line-height: 0.9;">
-  <span style="width: 15px; height: 15; background-color: #4824e4; border-radius: 50%; display: inline-block; margin-right: 10px;"></span>
   <span style="color: #000000; font-family: monospace; font-size: 1.5em; letter-spacing: -0.02em;">
+    <span style="width: 15px; height: 15; background-color: #4824e4; border-radius: 50%; display: inline-block; margin-right: 10px;"></span>
     <b>Joe Bacchus George</b>
   </span>
   <br>
