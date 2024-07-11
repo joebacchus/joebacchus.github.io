@@ -1,6 +1,6 @@
 <div style="max-width: 650px; margin: auto; line-height: 0.9;">
-  <span style="color: #000000; font-family: monospace; font-size: 1.5em; letter-spacing: -0.02em;">
-    <b>Joe Bacchus George</b>
+  <span style="color: #000000; font-family: helvetica neue; font-size: 1.5em; letter-spacing: -0.02em;">
+    <b>Joe Bacchus</b> George
   </span>
   <br>
   <br>
@@ -32,5 +32,17 @@
   <a href="https://www.trin.cam.ac.uk/" style="color: #4824e4; text-decoration: none;">
   <b>Trinity College</b></a>.
   </span>
+  <!-- <br>
   <br>
+  <span style="color: #000000; font-family: helvetica neue; font-size: 1em; letter-spacing: -0.02em;">
+    <b>Interests</b>
+  </span>
+  <br>
+  <br>
+  <span style="color: #000000; font-family: monospace; font-size: 0.8em; letter-spacing: -0.02em;">
+  Although my previous studies focused towards quantum computation and high-energy physics,
+  much of their mathematical descriptions extend towards
+  </span> -->
+  
+  
 </div>
