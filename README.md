@@ -1,4 +1,4 @@
-<div style="max-width: 650px; margin: auto; line-height: 0.8;">
+<div style="max-width: 650px; margin: auto; line-height: 0.9;">
   <span style="color: #000000; font-family: monospace; font-size: 1.5em; letter-spacing: -0.02em;">
     <b>Joe Bacchus George</b>
   </span>
