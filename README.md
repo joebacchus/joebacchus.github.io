@@ -32,6 +32,10 @@
   <b>Trinity College</b></a>.
   <br>
   <br>
+   <!-- Image -->
+  <img src="/Users/joebacchus/Desktop/Screenshot 2021-12-02 at 20.01.58.png" alt="Description of Image" style="max-width: 100%; height: auto;">
+  <br>
+  <br>
   <div style="text-align: center; font-family: monospace; helvetica neue; color: #000000; font-size: 0.9em;">
   joebacchusgeorge [at] gmail [dot] com
   </div>
