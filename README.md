@@ -23,7 +23,7 @@
   <b>University College London</b></a> (UCL). 
   <br>
   <br>
-  My department is that of 
+  My department is 
   <a href="https://www.eng.cam.ac.uk/research/academic-divisions/information-engineering" style="color: #4824e4; text-decoration: none;">
   <b>Information Engineering</b></a>
   where I am supervised by <b>Dr. George Cantwell</b>. 
