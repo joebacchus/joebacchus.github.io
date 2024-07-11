@@ -9,7 +9,7 @@
   </span>
   <br>
   <br>
-  <span style="color: #000000; font-family: monospace; font-size: 0.8em; letter-spacing: -0.02em; line-height: 0.8;">
+  <span style="color: #000000; font-family: monospace; font-size: 0.8em; letter-spacing: -0.02em; line-height: 0.5;">
   I am an incoming PhD student at the 
   <a href="https://www.cam.ac.uk" style="color: #4824e4; text-decoration: none;">
   <b>University of Cambridge</b></a> 
