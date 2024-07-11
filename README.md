@@ -1,4 +1,4 @@
-<div style="max-width: 700px; margin: auto;">
+<div style="max-width: 650px; margin: auto; line-height: 0.7;">
   <span style="color: #000000; font-family: monospace; font-size: 1.5em; letter-spacing: -0.02em;">
     <b>Joe Bacchus George</b>
   </span>
@@ -9,7 +9,7 @@
   </span>
   <br>
   <br>
-  <span style="color: #000000; font-family: monospace; font-size: 0.8em; letter-spacing: -0.02em; line-height: 0.5;">
+  <span style="color: #000000; font-family: monospace; font-size: 0.8em; letter-spacing: -0.02em;">
   I am an incoming PhD student at the 
   <a href="https://www.cam.ac.uk" style="color: #4824e4; text-decoration: none;">
   <b>University of Cambridge</b></a> 
