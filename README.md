@@ -33,7 +33,7 @@
   <br>
   <br>
    <!-- Image -->
-  <img src="genimage.png" alt="Description of Image" style="max-width: 100%; height: auto; border-radius: 15px;">
+  <img src="gifger.gif" alt="Description of Image" style="max-width: 100%; height: auto; border-radius: 15px;">
   <br>
   <br>
   <div style="text-align: center; font-family: monospace; helvetica neue; color: #000000; font-size: 0.9em;">
