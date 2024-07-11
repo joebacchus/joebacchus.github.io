@@ -32,7 +32,7 @@
   <b>Trinity College</b></a>.
   <br>
   <br>
-  <span style="font-family: monospace; helvetica neue; color: #000000; font-size: 1.0em;">
+  <span style="font-family: monospace; helvetica neue; color: #000000; font-size: 0.8em;">
   joebacchusgeorge [at] gmail [dot] com
   </span>
   </span>
