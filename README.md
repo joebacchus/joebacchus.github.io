@@ -4,6 +4,7 @@
   </span>
   <br>
   <br>
+  <br>
   <!-- <span style="color: #000000; font-family: monospace; font-size: 1.5em; letter-spacing: -0.02em;">
     <b>About me</b>
   </span>
@@ -23,7 +24,7 @@
   <b>University College London</b></a> (UCL). 
   <br>
   <br>
-  My department is
+  My department is that of 
   <a href="https://www.eng.cam.ac.uk/research/academic-divisions/information-engineering" style="color: #4824e4; text-decoration: none;">
   <b>Information Engineering</b></a>
   where I am supervised by <b>Dr. George Cantwell</b>. 
@@ -32,9 +33,9 @@
   <b>Trinity College</b></a>.
   <br>
   <br>
-  <span style="font-family: monospace; helvetica neue; color: #000000; font-size: 0.9em;">
+  <div style="text-align: center; font-family: monospace; helvetica neue; color: #000000; font-size: 0.9em;">
   joebacchusgeorge [at] gmail [dot] com
-  </span>
+  </div>
   </span>
   <!-- <br>
   <br>
