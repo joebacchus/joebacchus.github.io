@@ -4,7 +4,6 @@
   </span>
   <br>
   <br>
-  <br>
   <!-- <span style="color: #000000; font-family: monospace; font-size: 1.5em; letter-spacing: -0.02em;">
     <b>About me</b>
   </span>
