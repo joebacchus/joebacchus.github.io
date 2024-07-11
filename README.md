@@ -4,7 +4,6 @@
   </span>
   <br>
   <br>
-  <br>
   <!-- <span style="color: #000000; font-family: monospace; font-size: 1.5em; letter-spacing: -0.02em;">
     <b>About me</b>
   </span>
@@ -33,7 +32,7 @@
   <b>Trinity College</b></a>.
   <br>
   <br>
-  <span style="font-family: monospace; helvetica neue; color: #000000; font-size: 1.1em;">
+  <span style="font-family: monospace; helvetica neue; color: #000000; font-size: 1.0em;">
   joebacchusgeorge [at] gmail [dot] com
   </span>
   </span>
