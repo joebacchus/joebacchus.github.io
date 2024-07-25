@@ -11,7 +11,7 @@
       }
     });
   </script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
 <body>
   <div style="max-width: 650px; margin: auto; line-height: 1;">
@@ -54,6 +54,7 @@
     <br>
     -->
     Here is a distasteful <a href="https://mathworld.wolfram.com/PrimeCountingFunction.html" style="color: #000000; text-decoration: none;"><b>prime counting function</b></a> I conjured one evening instead of revising for finals:
+    <br>
     <br>
     $$
       \Pi_\varepsilon^\varrho(x)=\sum_{s=0}^{\varrho}\left(1+e^{\varepsilon\left(s-x\right)}\right)^{-1}\max\left(\frac{\cos\left(\pi s\right)^{\varepsilon}}{1+e^{\varepsilon\left(3-2s\right)}}-\sum_{q=2}^{\varrho}\frac{\cos\left(\frac{\pi}{q}s\right)^{\varepsilon}}{1+e^{\varepsilon\left(3q-2s\right)}},0\right)
