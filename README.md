@@ -25,6 +25,7 @@
       justify-content: center;
       align-items: center;
       font-family: Helvetica Neue, Arial, sans-serif;
+      background-color: #f7eee1;
     }
     .content {
       max-width: 650px;
