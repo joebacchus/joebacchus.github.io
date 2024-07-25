@@ -62,7 +62,7 @@ MathJax.Hub.Config({
     <br>
     <br>
     $$
-      \Pi_\varepsilon^\varrho(x)=\sum_{s=0}^{\varrho}\left(1+e^{\varepsilon\left(s-x\right)}\right)^{-1}\max\left\{\frac{\cos\left(\pi s\right)^{\varepsilon}}{1+e^{\varepsilon\left(3-2s\right)}}-\sum_{q=2}^{\varrho}\frac{\cos\left(\frac{\pi}{q}s\right)^{\varepsilon}}{1+e^{\varepsilon\left(3q-2s\right)}},0\right\}
+      \Pi_\varepsilon^\varrho(x)=\sum_{s=0}^{\varrho}\left(1+e^{2\varepsilon\left(s-x\right)}\right)^{-1}\max\left\{\frac{\cos\left(\pi s\right)^{2\varepsilon}}{1+e^{\varepsilon\left(6-4s\right)}}-\sum_{q=2}^{\varrho}\frac{\cos\left(\frac{\pi}{q}s\right)^{2\varepsilon}}{1+e^{\varepsilon\left(6q-4s\right)}},0\right\}
     $$
     <br>
     The variables $\varepsilon$ and $\varrho$ are integers calibrating the precision and range respectively to which our function holds. Ideally they would be taken to the positive infinite limit.
