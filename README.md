@@ -4,17 +4,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Joe Bacchus George</title>
   <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-    
-<script type="text/javascript"
-        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
   <div style="max-width: 650px; margin: auto; line-height: 1;">
@@ -62,7 +59,7 @@
       \Pi_\varepsilon^\varrho(x)=\sum_{s=0}^{\varrho}\left(1+e^{\varepsilon\left(s-x\right)}\right)^{-1}\max\left(\frac{\cos\left(\pi s\right)^{\varepsilon}}{1+e^{\varepsilon\left(3-2s\right)}}-\sum_{q=2}^{\varrho}\frac{\cos\left(\frac{\pi}{q}s\right)^{\varepsilon}}{1+e^{\varepsilon\left(3q-2s\right)}},0\right)
     $$
     <br>
-    The variables $ \varepsilon $ and $ \varrho $ are integers calibrating the precision and range respectively to which our function holds. Ideally they would be taken to the positive infinite limit.
+    The variables $\varepsilon$ and $\varrho$ are integers calibrating the precision and range respectively to which our function holds. Ideally they would be taken to the positive infinite limit.
     <br>
     <br>
     <div style="text-align: center; font-family: monospace; color: #000000; font-size: 0.9em;">
