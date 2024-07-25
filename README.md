@@ -42,9 +42,13 @@
     <b>Trinity College</b></a>.
     <br>
     <br>
+    <!--
      <!-- Image -->
     <img src="wolfsonson.jpg" alt="Description of Image" style="max-width: 100%; height: auto; border-radius: 15px;">
     <br>
+    <br>
+     -->
+    Here is a distasteful <a href="https://mathworld.wolfram.com/PrimeCountingFunction.html" style="color: #4824e4; text-decoration: none;"><b>prime counting function</b></a> I conjured one evening instead of revising for quantum field theory:
     <br>
     $$
       \Pi_\varepsilon^\varrho(x)=\sum_{s=0}^{\varrho}\left(1+e^{\varepsilon\left(s-x\right)}\right)^{-1}\max\left(\frac{\cos\left(\pi s\right)^{\varepsilon}}{1+e^{\varepsilon\left(3-2s\right)}}-\sum_{q=2}^{\varrho}\frac{\cos\left(\frac{\pi}{q}s\right)^{\varepsilon}}{1+e^{\varepsilon\left(3q-2s\right)}},0\right)
