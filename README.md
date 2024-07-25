@@ -43,11 +43,10 @@
     <br>
     <br>
     <!--
-     <!-- Image -->
     <img src="wolfsonson.jpg" alt="Description of Image" style="max-width: 100%; height: auto; border-radius: 15px;">
     <br>
     <br>
-     -->
+    -->
     Here is a distasteful <a href="https://mathworld.wolfram.com/PrimeCountingFunction.html" style="color: #4824e4; text-decoration: none;"><b>prime counting function</b></a> I conjured one evening instead of revising for quantum field theory:
     <br>
     $$
