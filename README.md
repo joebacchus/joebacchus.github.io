@@ -3,6 +3,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Joe Bacchus George</title>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  "HTML-CSS": { linebreaks: { automatic: true } },
+         SVG: { linebreaks: { automatic: true } }
+});
+</script>
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       tex2jax: {
@@ -10,12 +16,6 @@
         processEscapes: true}
     });
   </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  "HTML-CSS": { linebreaks: { automatic: true } },
-         SVG: { linebreaks: { automatic: true } }
-});
-</script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
 <body>
