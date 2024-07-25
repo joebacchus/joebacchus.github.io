@@ -20,7 +20,7 @@
     <br>
     <br>
     <br> -->
-    <span style="color: #000000; font-family: helvetica neue; font-size: 0.8em; letter-spacing: -0.02em;">
+    <span style="color: #000000; font-family: helvetica neue; font-size: 0.9em; letter-spacing: -0.02em;">
     I am an incoming PhD student at the 
     <a href="https://www.cam.ac.uk" style="color: #4824e4; text-decoration: none;">
     <b>University of Cambridge</b></a> 
@@ -41,12 +41,14 @@
     <a href="https://www.trin.cam.ac.uk/" style="color: #4824e4; text-decoration: none;">
     <b>Trinity College</b></a>.
     <br>
-    $$
-    \Pi_\varepsilon^\varrho(x)=\sum_{s=0}^{\varrho}\left(1+e^{\varepsilon\left(s-x\right)}\right)^{-1}\max\left(\frac{\cos\left(\pi s\right)^{\varepsilon}}{1+e^{\varepsilon\left(3-2s\right)}}- \sum_{q=2}^{\varrho}\frac{\cos\left(\frac{\pi}{q}s\right)^{\varepsilon}}{1+e^{\varepsilon\left(3q-2s\right)}},0\right)
-    $$
     <br>
      <!-- Image -->
     <img src="wolfsonson.jpg" alt="Description of Image" style="max-width: 100%; height: auto; border-radius: 15px;">
+    <br>
+    <br>
+    $$
+      \Pi_\varepsilon^\varrho(x)=\sum_{s=0}^{\varrho}\left(1+e^{\varepsilon\left(s-x\right)}\right)^{-1}\max\left(\frac{\cos\left(\pi s\right)^{\varepsilon}}{1+e^{\varepsilon\left(3-2s\right)}}-\sum_{q=2}^{\varrho}\frac{\cos\left(\frac{\pi}{q}s\right)^{\varepsilon}}{1+e^{\varepsilon\left(3q-2s\right)}},0\right)
+    $$
     <br>
     <br>
     <div style="text-align: center; font-family: monospace; color: #000000; font-size: 0.9em;">
