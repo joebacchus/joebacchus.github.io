@@ -1,4 +1,9 @@
 @font-face {
+    font-family: 'tt-firs-neue';
+    src: url('TT Firs Neue Trial Regular.ttf');
+}
+
+@font-face {
     font-family: 'itc-garamond-std';
     src: url('itc-garamond-std-light-narrow.otf');
 }
@@ -12,5 +17,41 @@ h1 {
     color: rgb(26, 26, 26);
     font-family: "itc-garamond-std";
     font-size: 50px;
+}
+
+p {
+    color: rgb(26, 26, 26);
+    font-family: "tt-firs-neue";
+    font-size: 20px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Helvetica Neue, Arial, sans-serif;
+    background-color: #f7eee1;
+}
+
+.content {
+    max-width: 650px;
+    text-align: left;
+    line-height: 1;
+    color: #2e2e2e;
+}
+
+.content a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.content a:hover {
+    text-decoration: underline;
+}
+
+.content b {
+    font-weight: bold;
 }
 
