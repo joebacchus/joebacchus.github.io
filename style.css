@@ -4,25 +4,70 @@
 }
 
 @font-face {
+    font-family: 'tt-firs-neue-med';
+    src: url('TT Firs Neue Trial DemiBold.ttf');
+}
+
+@font-face {
     font-family: 'itc-garamond-std';
     src: url('itc-garamond-std-light-narrow.otf');
 }
 
+@font-face {
+    font-family: 'itc-garamond-book';
+    src: url('itc-garamond-std-book-condensed.otf');
+}
+
 ::selection {
-    color: rgb(255, 70, 18);
+    color: #ff6200;
     background: rgba(246, 92, 40, 0);
-  }
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  background-color: #ff6200;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+span { 
+    font-family: "tt-firs-neue-med"; 
+}
 
 h1 {
     color: rgb(26, 26, 26);
+    font-family: "itc-garamond-book";
+    font-size: 50px;
+    display: inline !important;
+}
+
+h2 {
+    color: rgb(26, 26, 26);
     font-family: "itc-garamond-std";
     font-size: 50px;
+    display: inline !important;
+}
+
+h3 {
+    color: rgb(26, 26, 26);
+    font-family: "tt-firs-neue";
+    font-size: 15px;
+    margin-top:-0px;
+}
+
+.section{
+    max-width: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 p {
     color: rgb(26, 26, 26);
     font-family: "tt-firs-neue";
-    font-size: 20px;
+    font-size: 15px;
+    margin-top:20px;
 }
 
 html, body {
@@ -32,14 +77,21 @@ html, body {
     justify-content: center;
     align-items: center;
     font-family: Helvetica Neue, Arial, sans-serif;
-    background-color: #f7eee1;
+    background-color: #f6f4ef;
 }
 
 .content {
-    max-width: 650px;
+    max-width: 30%;
     text-align: left;
     line-height: 1;
     color: #2e2e2e;
+}
+
+.section{
+    max-width: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .content a {
