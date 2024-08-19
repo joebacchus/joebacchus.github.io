@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'itc-garamond-std';
+    src: url('itc-garamond-std-light-narrow.otf');
+}
+
+::selection {
+    color: rgb(255, 70, 18);
+    background: rgba(246, 92, 40, 0);
+  }
+
+h1 {
+    color: rgb(26, 26, 26);
+    font-family: "itc-garamond-std";
+    font-size: 50px;
+}
+
