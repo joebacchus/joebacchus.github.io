@@ -4,6 +4,21 @@
 }
 
 @font-face {
+    font-family: 'GBBold';
+    src: url('GowunBatang-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'GBReg';
+    src: url('GowunBatang-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Figtree';
+    src: url('Figtree.ttf');
+}
+
+@font-face {
     font-family: 'tt-firs-neue-med';
     src: url('TT-Firs-Neue-Trial-DemiBold.ttf');
 }
@@ -18,9 +33,22 @@
     src: url('itc-garamond-std-book-condensed.otf');
 }
 
+.gowun-batang-regular {
+    font-family: "Gowun Batang", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.gowun-batang-bold {
+    font-family: "Gowun Batang", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
 ::selection {
-    color: rgb(241, 38, 95);
-    background: rgba(246, 92, 40, 0);
+    color: #000000;
+    background: rgba(112, 112, 112, 0);
+    text-decoration: underline;
 }
 
 .dot {
@@ -32,20 +60,26 @@
 }
 
 span { 
-    font-family: "tt-firs-neue-med"; 
+    font-family: "Figtree"; 
+    background-color: #d4d4d4;
+    padding: 2px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 10px;
 }
+
 
 h1 {
     color: rgb(0, 0, 0);
-    font-family: "Helvetica";
-    font-weight: 550;
+    font-family: "Figtree";
+    font-weight: 600;
     font-size: 30px;
     display: inline !important;
 }
 
 h2 {
     color: rgb(26, 26, 26);
-    font-family: "Helvetica";
+    font-family: "Figtree";
     font-weight: 1;
     font-size: 30px;
     display: inline !important;
@@ -53,9 +87,10 @@ h2 {
 
 h3 {
     color: rgb(26, 26, 26);
-    font-family: "tt-firs-neue";
-    font-weight: 1000;
-    font-size: 15px;
+    font-family: "Figtree";
+    line-height: 150%;
+    font-weight: 500;
+    font-size: 16px;
     margin-top:-0px;
 }
 
@@ -103,8 +138,14 @@ html, body {
     text-decoration: none;
 }
 
-.content a:hover {
-    text-decoration: underline;
+.content span:hover {
+    background-color: rgb(198, 238, 22);
+    font-family: "Figtree"; 
+    color: #000000;
+    padding: 2px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 10px;
 }
 
 .content b {
