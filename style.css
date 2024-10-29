@@ -1,154 +1,90 @@
-@font-face {
-    font-family: 'tt-firs-neue';
-    src: url('TT-Firs-Neue-Trial-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'GBBold';
-    src: url('GowunBatang-Bold.ttf');
-}
-
-@font-face {
-    font-family: 'GBReg';
-    src: url('GowunBatang-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'Figtree';
-    src: url('Figtree.ttf');
-}
-
-@font-face {
-    font-family: 'tt-firs-neue-med';
-    src: url('TT-Firs-Neue-Trial-DemiBold.ttf');
-}
-
-@font-face {
-    font-family: 'itc-garamond-std';
-    src: url('itc-garamond-std-light-narrow.otf');
-}
-
-@font-face {
-    font-family: 'itc-garamond-book';
-    src: url('itc-garamond-std-book-condensed.otf');
-}
-
-.gowun-batang-regular {
-    font-family: "Gowun Batang", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-.gowun-batang-bold {
-    font-family: "Gowun Batang", serif;
-    font-weight: 700;
-    font-style: normal;
-}
-
-::selection {
-    color: #000000;
-    background: rgba(112, 112, 112, 0);
-    text-decoration: underline;
-}
-
-.dot {
-  height: 8px;
-  width: 8px;
-  background-color: #ff6200;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-span { 
-    font-family: "Figtree"; 
-    background-color: #d4d4d4;
-    padding: 2px;
-    padding-right: 5px;
-    padding-left: 5px;
-    border-radius: 10px;
-}
-
-
-h1 {
-    color: rgb(0, 0, 0);
-    font-family: "Figtree";
-    font-weight: 600;
-    font-size: 30px;
-    display: inline !important;
-}
-
-h2 {
-    color: rgb(26, 26, 26);
-    font-family: "Figtree";
-    font-weight: 1;
-    font-size: 30px;
-    display: inline !important;
-}
-
-h3 {
-    color: rgb(26, 26, 26);
-    font-family: "Figtree";
-    line-height: 150%;
-    font-weight: 500;
-    font-size: 16px;
-    margin-top:-0px;
-}
-
-.section{
-    max-width: 50%;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
-
-p {
-    color: rgb(26, 26, 26);
-    font-family: "tt-firs-neue";
-    font-weight: 1;
-    font-size: 15px;
-    margin-top:20px;
-}
-
-html, body {
-    height: 100%;
+body {
     margin: 0;
+    padding-left: 0;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Helvetica Neue, Arial, sans-serif;
-    background-color: #f6f4ef;
+    justify-content: left;
+    align-items: flex-start;
+    background-color: #111111; /* #fe004c */
+    background-image: url('m.png');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
 }
 
 .content {
-    max-width: 50%;
+    background-color: rgba(17, 17, 17, 0);
+    padding: 2rem;
+    border-radius: 10px;
     text-align: left;
+    max-width: 300px;
+    margin: 20px;
+}
+h1 {
+    font-family: "Helvetica Neue";
+    margin: 0;
     line-height: 1;
-    color: #2e2e2e;
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    color: #fe004c;
 }
-
-.section{
-    max-width: 50%;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+h2 {
+    font-family: "Helvetica Neue";
+    margin: 0;
+    line-height: 1;
+    font-size: 40px;
+    font-weight: 1000;
+    letter-spacing: -0.5px;
+    color: #fe004c;
 }
+h3 {
 
-.content a {
-    color: #000000;
+    font-family: "Helvetica Neue";
+    line-height: 1.3;
+    color: #fe004c;
+    letter-spacing: -0.5px;
+    font-size: 15px;
+    font-weight: 400;
+}
+a {
+    background-color: rgba(255, 0, 174, 0);
+    color: #111111;
+    padding: 0.5px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 1000;
+    color: #fe004c;
+}
+a:hover {
+    background-color: #fe004c;
+    color: #111111;
+    padding: 0.5px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+a span {
     text-decoration: none;
 }
 
-.content span:hover {
-    background-color: rgb(198, 238, 22);
-    font-family: "Figtree"; 
-    color: #000000;
-    padding: 2px;
-    padding-right: 5px;
-    padding-left: 5px;
-    border-radius: 10px;
+.email {
+    font-family: "Helvetica Neue";
+    line-height: 1.3;
+    color: #fe004c;
+    letter-spacing: -0.5px;
+    font-size: 15px;
+    font-weight: 1000;
+    position: static;
+    transform: none;
+    margin-top: 2rem;
 }
 
-.content b {
-    font-weight: bold;
+::selection {
+    color: #111111;
+    background: #ff00ae;
 }
-
