@@ -119,6 +119,7 @@ a:hover {
 }
 
 .social-icons img {
+    -webkit-filter: invert(17%) sepia(98%) saturate(5872%) hue-rotate(335deg) brightness(95%) contrast(110%);
     filter: invert(17%) sepia(98%) saturate(5872%) hue-rotate(335deg) brightness(95%) contrast(110%);
     height: 40px;
 }
