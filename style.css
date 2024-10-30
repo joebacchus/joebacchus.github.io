@@ -102,3 +102,29 @@ a:hover {
     color: #111111;
     background: #ff00ae;
 }
+
+.dot {
+    height: 8px;
+    width: 8px;
+    background-color: #fe004c;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: left; /* Centers icons horizontally */
+    gap: 10px; /* Adds space between icons */
+
+}
+
+.social-icons img {
+    filter: invert(17%) sepia(98%) saturate(5872%) hue-rotate(335deg) brightness(95%) contrast(110%);
+    height: 40px;
+}
+
+/* Optional: Add hover effect */
+.social-icons a:hover {
+    background-color: #111111;
+    opacity: 1;
+}
