@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Joe Bacchus George | Complex Systems, Machine Learning, Applied Mathematics, Theoretical Physics | PhD Student @ Information Engineering Cambridge">
+    <meta name="author" content="Joe Bacchus George">
+    <meta name="robots" content="index, follow">
+    <title>Joe Bacchus George</title>
+    <link rel="stylesheet" href="style_primes.css">
+    <!-- MathJax Configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            "HTML-CSS": {
+                linebreaks: { automatic: true, width: "container" } /* Set to container width */
+            },
+            SVG: {
+                linebreaks: { automatic: true, width: "container" }
+            }
+        });
+    </script>
+
+    <!-- MathJax Script -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+<div class="content">
+    <h1>Prime</h1>
+    <h1>Counting</h1>
+    <h2>Function</h2>
+    <h3>Here's a <a href="https://mathworld.wolfram.com/PrimeCountingFunction.html">prime counting function</a> (PCF) I conjured one evening instead of revising for my Oxford exams. We call $\varrho$ the distance and $\varepsilon$ the resolution.</h3>
+
+<!-- Math Expression Centered -->
+<div class="math">
+    <!-- First Math Equation -->
+    \[
+    \Pi_\varepsilon^\varrho(x) = \sum_{s=0}^{\varrho} \left(1 + e^{2\varepsilon\left(s - x\right)}\right)^{-1}
+    \max \left\{ \frac{\cos\left(\pi s\right)^{2\varepsilon}}{1 + e^{\varepsilon\left(6 - 4s\right)}} - \sum_{q=2}^{\varrho}
+    \frac{\cos\left(\frac{\pi s}{q}\right)^{2\varepsilon}}{1 + e^{\varepsilon\left(6q - 4s\right)}}, 0 \right\}
+    \]
+</div>
+    <h3>In the the positive infinite limit this parametrised approximation tends to the true PCF function.</h3>
+<div class="math">
+    \[
+    \Pi(x)=\lim_{\varrho,\varepsilon\rightarrow\infty}\Pi_\varepsilon^\varrho(x) \ \text{where} \ \varrho,\varepsilon \in \mathbb{N}
+    \]
+</div>
+</div>
+</body>
+</html>

@@ -13,9 +13,9 @@ body {
 }
 
 /* Desktop styles */
-@media (min-width: 1500px) {
+@media (min-width: 1300px) {
     body {
-        background-image: url('mn.png');
+        background-image: url('mnpo.png');
         background-attachment: fixed;
         background-size: cover;
         background-position: center;
@@ -24,7 +24,7 @@ body {
 }
 
 /* Mobile styles */
-@media (max-width: 1499px) {
+@media (max-width: 1299px) {
     body {
         /*background-image: url('mnn.png');*/
         background-size: cover;
