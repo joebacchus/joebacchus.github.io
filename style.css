@@ -96,11 +96,28 @@ h3 {
     font-family: var(--mono);
     line-height: var(--lheight);
     color: var(--red);
+
     letter-spacing: var(--lspace);
     font-size: var(--fsize);
     font-weight: 400;
 }
 
+u{
+    font-family: var(--mono);
+    line-height: var(--lheight);
+    color: var(--red);
+    text-decoration-color: #FF0045;
+    text-shadow:
+            -0.2px -0.2px 0 var(--red),
+            0.2px -0.2px 0 var(--red),
+            -0.2px 0.2px 0 var(--red),
+            0.2px 0.2px 0 var(--red);
+    letter-spacing: var(--lspace);
+    font-size: var(--fsize);
+    font-weight: 400;
+
+    text-decoration: none;
+}
 b {
     font-family: var(--mono);
     line-height: var(--lheight);
@@ -160,7 +177,7 @@ a:hover {
 
 ::selection {
     color: #111111;
-    background: #ff00ae;
+    background: var(--orange);
 }
 
 .dot {
