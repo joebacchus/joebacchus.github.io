@@ -61,7 +61,6 @@ body {
 }
 
 .bottoms {
-
     text-align: center;
 }
 
@@ -140,28 +139,15 @@ a {
 }
 
 a:hover {
-    background-color: rgba(255, 68, 0, 0);
-    /*padding: 0.5px 3px;*/
-    font-size: var(--fsize);
+    background-color: rgb(255, 0, 174, 0);
     color: var(--red);
-    text-decoration: none;
-    text-shadow:
-            -0.2px -0.2px 0 var(--red),
-            0.2px -0.2px 0 var(--red),
-            -0.2px 0.2px 0 var(--red),
-            0.2px 0.2px 0 var(--red);
-    margin: 0 -0.2em;
-    padding: 0.0em 0.2em;
-    border-radius: 5px;
-    background: transparent;
-    background-image: linear-gradient(
-            to right,
-            rgb(255, 0, 89,0),
-            rgb(255, 0, 89,0),
-            rgb(255, 0, 89,0)
-    );
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
+    /*padding: 0.5px 3px;*/
+    /* border-radius: 4px;*/
+
+    text-decoration: underline;
+    font-weight: 800;
+    font-family: var(--mono);
+    font-size: var(--fsize);
 }
 
 .email {
