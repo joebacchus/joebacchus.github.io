@@ -63,24 +63,30 @@ h3 {
 p {
     font-size: 14px;
     margin: 0;
+    text-align: left;
+    padding: 0 10px;
 }
 
 .box {
     display: block;
-    width: 230px;
+    width: 240px;
 }
 
 .projects {
     align-items: center;
     text-align: left;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 140px 40px;
     padding: 10px;
     grid-gap: 5px;
 }
 
 .right_aligned {
     text-align: right;
+}
+
+.center_aligned {
+    text-align: center;
 }
 
 .row-border{
