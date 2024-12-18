@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Counting</title>
+    <link rel="stylesheet" href="css/styles_primes.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+</head>
+<body>
+
+<div class="box">
+
+<p>Here is a prime counting function.</p>
+
+    <div class="math">
+        \[
+        \Pi_\varepsilon^\varrho(x) = \sum_{s=0}^{\varrho} \left(1 + e^{2\varepsilon\left(s - x\right)}\right)^{-1}
+        \max \left\{\sigma(\varepsilon,s), 0 \right\}
+        \\ \sigma(\varepsilon,s)=
+        \frac{\cos\left(\pi s\right)^{2\varepsilon}}{1 + e^{\varepsilon\left(6 - 4s\right)}} - \sum_{q=2}^{\varrho}
+        \frac{\cos\left(\frac{\pi s}{q}\right)^{2\varepsilon}}{1 + e^{\varepsilon\left(6q - 4s\right)}}
+        \]
+    </div>
+    <p>In the the positive infinite limit this parametrised approximation tends to the true PCF function.</p>
+    <div class="math">
+        \[
+        \Pi(x)=\lim_{\varrho,\varepsilon\rightarrow\infty}\Pi_\varepsilon^\varrho(x) \ \text{where} \ \varrho,\varepsilon \in \mathbb{N}
+        \]
+    </div>
+
+
+<div class="piece"><a href="http://joebacchus.github.io">
+    <h3 class="default">back</h3>
+    <h3 class="alternative">▸ back</h3>
+</a></div>
+</div>
+
+</body>
+</html>

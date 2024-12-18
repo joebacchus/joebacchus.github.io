@@ -39,7 +39,7 @@ p {
 
 .box {
     display: block;
-    width: 230px;
+    width: 530px;
 }
 
 .projects {
@@ -79,6 +79,6 @@ a {
 }
 
 .math {
-    font-family: 'STIX General';
-    font-size: 18px;
+    color: #161616;
+    font-size: 14px;
 }
