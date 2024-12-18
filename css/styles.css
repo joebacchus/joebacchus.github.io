@@ -16,7 +16,6 @@ h1 {
     font-size: 30px;
     margin: 0;
     text-transform: lowercase;
-    transform: rotate(-45deg)
 }
 
 h2 {
@@ -35,6 +34,40 @@ h3 {
 p {
     font-size: 14px;
     margin: 0;
+}
+
+@media (min-width: 700px) {
+    .box_up {
+        display: none;
+    }
+
+    .box_down {
+        display: none;
+    }
+
+    .box_side {
+        display: inherit;
+        transform: rotate(-45deg);
+    }
+}
+
+@media (max-width: 700px) {
+    .box_up {
+        padding: 10px;
+        display: inherit;
+        text-align: left;
+    }
+
+    .box_down {
+        padding: 0px;
+        display: inherit;
+        text-align: center;
+    }
+
+    .box_side {
+        display: none;
+    }
+
 }
 
 .box {
