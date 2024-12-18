@@ -29,8 +29,8 @@
 }
 
 body {
-    background-color: #1bd963;
-    color: #161616;
+    background-color: #1bd963; /*#1bd963*/
+    color: #161616; /*#1bd963*/
     font-family: 'monospace', monospace;
     text-align: center;
     margin: 0;
@@ -42,7 +42,6 @@ body {
 }
 
 h1 {
-    color: #161616;
     font-size: 30px;
     margin: 0;
     text-transform: lowercase;
@@ -78,6 +77,10 @@ p {
     grid-template-columns: auto auto;
     padding: 10px;
     grid-gap: 5px;
+}
+
+.right_aligned {
+    text-align: right;
 }
 
 .row-border{

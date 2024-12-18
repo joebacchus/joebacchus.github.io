@@ -1,5 +1,5 @@
 body {
-    background-color: #1bd963;
+    background-color: #1bd963; /*#1bd963*/
     color: #161616;
     font-family: 'monospace', monospace;
     text-align: center;
@@ -11,8 +11,12 @@ body {
     height: 100vh;
 }
 
-h1 {
+.math {
+    font-size: 14px;
     color: #161616;
+}
+
+h1 {
     font-size: 30px;
     margin: 0;
     text-transform: lowercase;
@@ -76,9 +80,4 @@ p {
 a {
     color: #161616;
     text-decoration: none;
-}
-
-.math {
-    color: #161616;
-    font-size: 14px;
 }
