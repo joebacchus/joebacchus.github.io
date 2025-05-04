@@ -1,19 +1,17 @@
-@media {
-    .box_up {
-        display: block;
-        padding: 10px;
-        text-align: left;
-    }
+.box_up {
+    display: block;
+    padding: 10px;
+    text-align: left;
+}
 
-    .box_down {
-        display: block;
-        padding: 0;
-        text-align: center;
-    }
+.box_down {
+    display: block;
+    padding: 0;
+    text-align: center;
+}
 
-    .box_side {
-        display: none;
-    }
+.box_side {
+    display: none;
 }
 
 body {
