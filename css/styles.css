@@ -1,16 +1,4 @@
-@media (min-width: 700px) {
-    .box_up,
-    .box_down {
-        display: none;
-    }
-
-    .box_side {
-        display: block;
-        transform: rotate(-45deg);
-    }
-}
-
-@media (max-width: 700px) {
+@media {
     .box_up {
         display: block;
         padding: 10px;
@@ -29,8 +17,8 @@
 }
 
 body {
-    background-color: #63a45a; /*#1bd963*/
-    color: #161616; /*#1bd963*/
+    background-color: #131313; /*#1bd963*/
+    color: #ffffff; /*#1bd963*/
     font-family: 'monospace', monospace;
     text-align: center;
     margin: 0;
@@ -42,29 +30,31 @@ body {
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 14px;
     margin: 0;
     text-transform: lowercase;
+    color: rgb(255, 255, 255);
 }
 
 h2 {
-    font-size: 14px;
+    font-size: 12px;
     margin: 0;
     text-transform: lowercase;
 }
 
 h3 {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     margin: 0;
     text-transform: lowercase;
 }
 
 p {
-    font-size: 14px;
+    font-size: 12px;
     margin: 0;
     text-align: left;
     padding: 0 10px;
+    text-transform: lowercase;
 }
 
 .box {
@@ -90,13 +80,13 @@ p {
 }
 
 .row-border{
-    border-top: 1px solid #161616;
+    border-top: 0px solid #ffffff;
     grid-column: 1 / 5;
 }
 
 ::selection {
-    color: #d0ff00;
-    background: #f50f9d;
+    color: #ffffff;
+    background: #000000;
 }
 
 .piece .alternative {
@@ -112,6 +102,6 @@ p {
 }
 
 a {
-    color: #161616;
+    color: #ffffff;
     text-decoration: none;
 }
