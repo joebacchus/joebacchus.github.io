@@ -22,6 +22,6 @@ content:
         label: Draft
         type: boolean
         default: true
-      - name: content
+      - name: body
         label: Content
         type: string
