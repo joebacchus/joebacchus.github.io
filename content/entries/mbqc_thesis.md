@@ -1,5 +1,5 @@
 ---
-title: Erroneous Measurement-Based Quantum Computing
+title: Erroneous measurement-based quantum computing
 description: Can we exploit a graphical language and the topology of physical
   qubits to better understand faulty quantum computers?
 location: Oxford
