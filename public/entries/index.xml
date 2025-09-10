@@ -23,6 +23,13 @@
       <description>&lt;p&gt;The paradigm of &lt;strong&gt;measurement-based quantum computing (MBQC)&lt;/strong&gt; uses careful sequences of measurements on entangled qunatum states to perform computation. Because the approach can be erroneous, and naturally expressible in the diagrammatic language of the ZX-Calculus, there exists a nice interplay between the graphical representation and physical faulty lattices that contain the system. &lt;strong&gt;Percolation theory&lt;/strong&gt;, which studies the behaviour of graphs when you remove some of their components, helps describe the limitations in computational power when the quantum resources are imperfect. These ideas are brought together &lt;a href=&#34;https://www.cs.ox.ac.uk/people/aleks.kissinger/theses/george-thesis.pdf&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Hidden innovation from patent networks at the Bartlett</title>
+      <link>http://localhost:1313/entries/casa_networks/</link>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/entries/casa_networks/</guid>
+      <description>&lt;p&gt;Patents tend to cite other innovations that inspired them, from which directed graphs can be constructed. One can then identify the categories that these innovations fall under by exploiting their International Patent Classification (IPC) codes at various hierarchical levels. The resulting graphs can be used to identify the most productive ideas in a given field, strongly influential categories of patents and some predictive ability over future innovations. &lt;a href=&#34;../../annotated_presentation.pdf&#34;&gt;Here&lt;/a&gt; are some snapshots of some briefly annotated slides that explore the project.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Internal Chatbot for the ATLAS Experiment at CERN</title>
       <link>http://localhost:1313/entries/cern_chatbot/</link>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
