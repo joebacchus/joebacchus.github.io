@@ -1,0 +1,12 @@
+baseURL = 'https://joebacchus.github.io/'
+languageCode = 'en-us'
+title = 'Joe Bacchus George'
+[markup]
+  [markup.highlight]
+    noClasses = false  
+    style = "manni"     
+    guessSyntax = true
+    lineNos = true    
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'

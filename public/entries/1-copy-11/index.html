@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/pages.css">
+    <title>A prime counting function with trigonometry</title>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+    integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer">
+
+<script
+    defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js"
+    integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    type="text/javascript"></script>
+
+<script
+    defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+    integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    type="text/javascript"></script>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+      ],
+    });
+  });
+</script>
+</head>
+<body>
+    <div class="content">
+    <div class="head">
+        <h1>A prime counting function with trigonometry</h1>
+        <p style="font-style: italic">Interferring sinusoidal functions to approximate the prime counting function to arbitrary precision.</p>
+    </div>
+    <h1 id="exploring-fibonacci-numbers">Exploring Fibonacci Numbers</h1>
+<p>The <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a> is a famous integer sequence defined by the recurrence relation:</p>
+<p>$$
+F_n = F_{n-1} + F_{n-2}, \quad \text{with } F_0 = 0, ; F_1 = 1
+$$</p>
+<h2 id="golden-ratio-connection">Golden Ratio Connection</h2>
+<p>As $ n \to \infty $, the ratio of consecutive Fibonacci numbers approaches the <strong>golden ratio</strong>:</p>
+<p>$$
+\varphi = \frac{1 + \sqrt{5}}{2} \approx 1.618
+$$</p>
+<p>Learn more about the <a href="https://en.wikipedia.org/wiki/Golden_ratio">golden ratio</a>.</p>
+<h2 id="a-quick-python-snippet">A Quick Python Snippet</h2>
+<p>Here’s a simple Python function to generate Fibonacci numbers. For more advanced techniques, check out <a href="https://realpython.com/recursion-python/">Python recursion tips</a>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">([</span><span class="n">fib</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+</body>
+</html>
+    <button class="back" onclick="history.back()">back</button>
+</body>
+</html>

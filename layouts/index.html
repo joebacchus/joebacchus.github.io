@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>{{ .Title }}</title>
+    {{ partial "katex.html" . }}
+</head>
+<body>    
+    {{ partial "face.html" . }}
+    <h1 id="name">{{ .Title }}</h1>
+    <div id="clock"></div>
+    <table id="main_table">
+    {{ range where .Site.RegularPages "Section" "entries" }}
+        {{ partial "row.html" . }}
+    {{ end }}
+    </table>
+
+<script src="time.js"></script>
+</body>
+</html>
