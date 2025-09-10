@@ -1,7 +1,7 @@
 ---
 title: Internal Chatbot for the ATLAS Experiment at CERN
-description: Developing an internal chatbot with the European Organization for
-  Nuclear Research under the supervision of Dr. Gabriel Facini.
+description: Can we construct an internal chatbot to help researchers find
+  scientific resources reliably?
 location: London
 date: 2023-01-01
 draft: false
