@@ -1,11 +1,11 @@
 ---
 title: A prime counting function with trigonometry
-description: Interferring sinusoidal functions to approximate the prime counting function to arbitrary precision.
-location: Oxford 
+description: How could we construct an exact form for the prime counting
+  function with simple  mathematical elements?
+location: Oxford
 date: 2024-01-01
 draft: false
 ---
-
 The **prime counting function (PCF)** counts the number of prime numbers less than or equal to a given number $x$. We denote it by $\Pi(x)$ and asymptotically obeys
 
 $$
