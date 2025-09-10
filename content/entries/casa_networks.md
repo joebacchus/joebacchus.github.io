@@ -1,6 +1,6 @@
 ---
 title: Complex networks for patents at the Bartlett
-description: Can you predict innovation by studying the network of citations for patents?
+description: Can we predict innovation by studying the network of citations for patents?
 location: London
 date: 2023-01-01
 draft: false
