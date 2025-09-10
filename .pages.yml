@@ -1,0 +1,24 @@
+content:
+  - name: entries
+    label: Entries
+    type: collection
+    path: content/entries
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: string
+      - name: location
+        label: Location
+        type: string
+        options:
+          maxlength: 80
+      - name: date
+        label: Date
+        type: date
+      - name: draft
+        label: Draft
+        type: boolean
+        default: true
