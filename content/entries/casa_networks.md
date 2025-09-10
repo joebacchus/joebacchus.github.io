@@ -1,7 +1,6 @@
 ---
 title: Complex networks for patents at the Bartlett
-description: Using network theory to understand patent data under the
-  supervision of Prof. Elsa Arcaute.
+description: Can you predict innovation by studying the network of citations for patents?
 location: London
 date: 2023-01-01
 draft: false
