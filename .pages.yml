@@ -8,10 +8,10 @@ content:
     fields:
       - name: title
         label: Title
-        type: string
+        type: text
       - name: description
         label: Description
-        type: string
+        type: text
       - name: location
         label: Location
         type: string
