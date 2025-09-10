@@ -1,5 +1,5 @@
 ---
-title: Internal Chatbot for the ATLAS Experiment at CERN
+title: Internal chatbot for the ATLAS experiment at CERN
 description: How would we construct an internal chatbot to help researchers find
   scientific resources reliably?
 location: London
