@@ -1,7 +1,7 @@
 ---
 title: Erroneous Measurement-Based Quantum Computing
-description: A master's thesis exploring how the ZX-calculus and percolation
-  theory can help to manage faulty quantum computers.
+description: Can we exploit a graphical language and the topology of physical
+  qubits to better understand faulty quantum computers?
 location: Oxford
 date: 2024-01-01
 draft: false
