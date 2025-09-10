@@ -26,4 +26,4 @@ content:
         default: true
       - name: body
         label: Content
-        type: string
+        type: text
