@@ -3,6 +3,8 @@ content:
     label: Entries
     type: collection
     path: content/entries
+    view:
+      fields: [ title, data ]
     fields:
       - name: title
         label: Title
