@@ -12,4 +12,4 @@ There exists a nice interplay between the graphical representation and physical 
 
 You can watch an online talk discussing this work for the **ZX-Calculus seminar** [here](https://www.youtube.com/watch?v=g-_h0nBQ7rQ). Because of connection issues, slides for the presentation are available in the video description.
 
-_This work was completed as part of my Master's degree in Theoretical Physics at Oxford. Many thanks to Prof. Renaud Lambiotte and Prof. Matthew Hoban for their supervision._
+_This work was completed as part of my Master's degree in Theoretical Physics at Oxford under the supervision of Prof. Renaud Lambiotte and Prof. Matthew Hoban._
