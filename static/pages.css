@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 :root {
-    --background: rgb(247, 234, 224);
-    --shaded: rgb(239, 224, 211);
+    --background: #f7eae0;
+    --shaded: #efe0d3;
     --main: #1a1a1a;
-    --highlight: #f35c7f;
+    --highlight: #f2775e;
 
     --code_keywords: var(--highlight);
     --code_strings: #1f94b7;
     --code_comments: var(--background);
-    --code_tags: #eb8a40;
+    --code_tags: #f3775e;;
     --code_numbers: #1f94b7;
 }
 
@@ -48,51 +48,53 @@ body {
 }
 
 strong {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 h1 {
-    font-size: 28px;
+    font-size: 30px;
     line-height: 1em;
     font-weight: 200;
 }
 
 h2 {
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1em;
     font-weight: 400;
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 22px;
     line-height: 1em;
     font-weight: 400;
 }
 
 p {
-    font-size: 16px;
-    line-height: 1em;
+    font-size: 18px;
+    line-height: 1.2em;
     font-weight: 400;
 }
 
 a {
-    color: inherit;         
-    text-decoration: none;   
-    /* cursor: default;       */
+    font-weight: 600;
     color: var(--highlight);
-    /* text-decoration: underline; */
-    /* text-underline-offset: 2px; */
-    /* text-decoration-thickness: 2px; */
+    text-decoration: none;
+    position: relative;
 }
 
-a:hover {
-    color: inherit;         
-    text-decoration: none;   
-    /* cursor: default;       */
-    color: var(--highlight);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    text-decoration-thickness: 2px;
+a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0; 
+    height: 2px;
+    width: 0;
+    background-color: var(--highlight);
+    transition: width 0.1s ease;
+}
+
+a:hover::after {
+    width: 100%;
 }
 
 .back{
