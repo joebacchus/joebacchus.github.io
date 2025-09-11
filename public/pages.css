@@ -25,6 +25,8 @@
 }
 
 body {
+    /* opacity: 0;
+    animation: fadeIn 0.5s forwards; */
     background-color: var(--background);
     color: var(--main);
     font-family: 'EB Garamond', arial;
@@ -39,6 +41,10 @@ body {
     margin: 0;  
     line-height: 100%;
     /* text-transform: capitalize; */
+}
+
+@keyframes fadeIn {
+    to {opacity: 1;}
 }
 
 strong {
