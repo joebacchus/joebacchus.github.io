@@ -11,15 +11,16 @@
     {{ partial "katex.html" . }}
 </head>
 <body>    
-    {{ partial "face.html" . }}
-    <h1 id="name">{{ .Title }}</h1>
-    <div id="clock"></div>
-    <table id="main_table">
-    {{ range where .Site.RegularPages "Section" "entries" }}
-        {{ partial "row.html" . }}
-    {{ end }}
-    </table>
-
+    <div id="page">
+        {{ partial "face.html" . }}
+        <h1 id="name">{{ .Title }}</h1>
+        <div id="clock"></div>
+        <table id="main_table">
+        {{ range where .Site.RegularPages "Section" "entries" }}
+            {{ partial "row.html" . }}
+        {{ end }}
+        </table>
+    </div>
 <script src="time.js"></script>
 </body>
 </html>

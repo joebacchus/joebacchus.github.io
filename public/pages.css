@@ -31,15 +31,15 @@ body {
     color: var(--main);
     font-family: 'EB Garamond', arial;
     letter-spacing: 0.01em;
-    font-size: small;
-    display: flex;
-    flex-direction: column;  
-    justify-content: center;  
-    align-items: center;     
-    text-align: left;
-    /* height: 100vh;  */
     margin: 0;  
     line-height: 100%;
+    /* text-transform: capitalize; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    justify-content: center;  
+    /* align: center; */
+    min-height: 100vh;
     /* text-transform: capitalize; */
 }
 
@@ -149,14 +149,14 @@ a:hover {
 
 .content{
     max-width: 500px;
-    padding: 0px 8%;
+    padding: 0px 10%;
 }
 
 .head {
     text-align: left;
     width: 50%;
     padding: 0px 0px;
-    margin-top: 180px;
+    margin-top: 100px;
     margin-bottom: 60px;
     /* font-family: monospace; */
 }
