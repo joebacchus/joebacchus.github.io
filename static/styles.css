@@ -1,5 +1,5 @@
 :root {
-    --background: rgb(75, 97, 68);
+    --background: #4b6144;
     --main: #1a1a1a;
     --highlight: #f0f057;
 }
@@ -31,6 +31,7 @@ body {
     justify-content: center;  
     /* align: center; */
     min-height: 100vh;
+    transition: background-color 0.2s ease;
 }
 
 #page {
@@ -53,7 +54,10 @@ a {
     text-align: left;
     font-size: medium;
     font-weight: 800;
-    margin-top: 0px;
+    margin-top: 0px;   
+    padding: 4px;
+    width: 200px;             
+    text-align: center;
 }
 
 #clock {
@@ -97,4 +101,25 @@ a {
 #about {
     text-align: center;
     width:280px;
+}
+
+.glow {
+    font-family: monospace;
+    font: inherit;     
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0px 8px;
+    transition: color 0.2s ease;
+    
+    /* Fix button size */
+    display: inline-block;
+    width: 200px;         
+    text-align: center;
+    white-space: nowrap;
+}
+
+.glow:hover {
+    color: var(--background);
 }

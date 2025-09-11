@@ -1,5 +1,5 @@
 :root {
-    --background: #4b6144;
+    --background: rgb(75, 97, 68);
     --main: #1a1a1a;
     --highlight: #f0f057;
 }
@@ -29,17 +29,21 @@ body {
     display: flex;
     align-items: center;  
     justify-content: center;  
+    flex-direction: column;
     /* align: center; */
     min-height: 100vh;
-    transition: background-color 0.2s ease;
 }
 
 #page {
     /* height: 5cm;
     width: 5cm; */
+    margin-top: 40px;
+    max-width: 320px;
+    padding: 0px 10%;
     display: flex;
+    text-align: left;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     justify-content: center;
 }
 
@@ -54,10 +58,7 @@ a {
     text-align: left;
     font-size: medium;
     font-weight: 800;
-    margin-top: 0px;   
-    padding: 4px;
-    width: 200px;             
-    text-align: center;
+    margin-top: 0px;
 }
 
 #clock {
@@ -103,23 +104,24 @@ a {
     width:280px;
 }
 
-.glow {
+.back{
     font-family: monospace;
-    font: inherit;     
-    cursor: pointer;
+    margin-top: 20px;
     background: none;
     border: none;
-    color: inherit;
-    padding: 0px 8px;
-    transition: color 0.2s ease;
-    
-    /* Fix button size */
-    display: inline-block;
-    width: 200px;         
-    text-align: center;
-    white-space: nowrap;
+    color: inherit;      
+    font: inherit;     
+    cursor: pointer;
+    padding: 8px;
+    margin-bottom: 80px;
 }
 
-.glow:hover {
-    color: var(--background);
+.back {
+    font-family: monospace;
+    font-weight: normal;
+    transition: font-weight 0.1s ease;
+}
+
+.back:hover {
+    font-weight: bold; 
 }

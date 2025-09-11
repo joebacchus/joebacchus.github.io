@@ -7,14 +7,18 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.png" type="image/png">
 
-    <title>{{ .Title }}</title>
+    <title>Joe Bacchus George</title>
     {{ partial "katex.html" . }}
 </head>
 <body>    
     <div id="page">
         {{ partial "face.html" . }}
-        <h1 id="name">{{ .Title }}</h1>
-        <div id="clock"></div>
+        <h1 id="name">
+        <button onclick="location.href='about/index.html'" class="glow">
+            <span class="text">Joe Bacchus George</span>
+        </button>
+        </h1>
+        {{/*  <div id="clock"></div>  */}}
         <table id="main_table">
         {{ range where .Site.RegularPages "Section" "entries" }}
             {{ partial "row.html" . }}
@@ -22,5 +26,6 @@
         </table>
     </div>
 <script src="time.js"></script>
+<script src="intense.js"></script>
 </body>
 </html>
