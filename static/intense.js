@@ -12,7 +12,6 @@ glowButton.parentElement.addEventListener('mouseleave', () => {
     glowButton.textContent = 'Joe Bacchus George';
 });
 
-// Reset background when coming back to page (mobile back button)
 window.addEventListener('pageshow', () => {
     document.body.style.backgroundColor = '';
     glowButton.textContent = 'Joe Bacchus George';
