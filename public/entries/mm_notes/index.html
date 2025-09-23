@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/pages.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <title>Linear algebra, stochastic processes and optimisation</title>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+    integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer">
+
+<script
+    defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js"
+    integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    type="text/javascript"></script>
+
+<script
+    defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+    integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    type="text/javascript"></script>
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false},
+      ],
+    });
+  });
+</script>
+</head>
+<body>
+    <div class="content">
+    <div class="head">
+        <h1>Linear algebra, stochastic processes and optimisation</h1>
+        <p style="font-style: italic">Interactive lecture notes for a third year mathematical methods course at Cambridge.</p>
+    </div>
+    <h1 id="3m1-mathematical-methods---linear-algebra-stochastic-processes-and-optimisation">3M1: Mathematical Methods - Linear Algebra, Stochastic Processes and Optimisation</h1>
+<p>Lent 2026</p>
+<h1 id="introduction">Introduction</h1>
+<p>These notes cover four lectures and are just a taste of linear algebra. A number of topics that are important in scientific computing and engineering are touched upon, but there is much more left untold!</p>
+<p><strong>Task</strong>: Review carefully the linear algebra from Part IB.</p>
+<h2 id="books">Books</h2>
+<p>There are many books on linear algebra. A gentle text is:</p>
+<ul>
+<li>Strang, G. (2006) <em>Linear Algebra and its Applications</em>.</li>
+</ul>
+<p>An excellent textbook is</p>
+<ul>
+<li>Trefethen, L.N. and Bau, D (1997) <em>Numerical Linear Algebra</em>, SIAM.</li>
+</ul>
+<p>Formal mathematical analysis of some of the topics covered can be found in:</p>
+<ul>
+<li>Süli, E. and Mayers, D. (2006) <em>An Introduction to Numerical Analysis</em>, Cambridge University Press.</li>
+</ul>
+<p>Another book which also has a more formal emphasis, but which can be downloaded freely from the author&rsquo;s webpage is:</p>
+<ul>
+<li>Scott, L.R. (2014) <em>Numerical Analysis</em>, Princeton University Press. <a href="http://people.cs.uchicago.edu/~ridg/newna/natwo.pdf">http://people.cs.uchicago.edu/~ridg/newna/natwo.pdf</a></li>
+</ul>
+<p>A classic matrix monograph is</p>
+<ul>
+<li>Golub, G.H. and Van Loan, C.F. (2012) <em>Matrix Computations</em>, The John Hopkins University Press.</li>
+</ul>
+<h1 id="definitions">Definitions</h1>
+<p>Linear algebra involves a number of definitions and considerable jargon, and most problems and applications involve a synthesis of the basic concepts/definitions. Some key definitions and concepts that will be built upon in this course are presented in this section. Some concepts will be familiar, and others less so.</p>
+<h2 id="vector-spaces">Vector spaces</h2>
+<h3 id="what-is-a-vector-slide-2">What is a vector? [slide 2]</h3>
+<p>A vector $v$ is an element of a vector space. We will define a vector space shortly, but a space is not very intuitive without a concrete example of a vector.</p>
+<p>You will be most familiar with vectors from the Euclidean space $\mathbb{R}^n$, which is all vectors with $n$ real components (an n-tuple). For example a vector $x \in \mathbb{R}^n$ has the form</p>
+<p>$$ x = (x_1, x_2, x_3, \dots, x_n)^T $$</p>
+<p>and a vector $x \in \mathbb{R}^4$ has the form</p>
+<p>$$ x = (x_1, x_2, x_3, x_4)^T $$</p>
+<p>For generality, we will consider complex problems. A vector $x \in \mathbb{C}^n$ has the form</p>
+<p>$$ x = (x_1, x_2, x_3, \dots, x_n)^T $$</p>
+<p>where $x_i \in \mathbb{C}$ (each component is a complex number).</p>
+<h3 id="what-is-a-vector-space-slide-3">What is a vector space? [slide 3]</h3>
+<p>A vector space, often denoted by $V$, is a &lsquo;family&rsquo; of vectors that obey some basic rules. For vectors $u, v$ and $w$ in a space $V$, and scalars $r$ and $s$ (complex), the rules are:</p>
+<ol>
+<li>$u + (v + w) = (u + v) + w$</li>
+<li>$u + v = v + u$</li>
+<li>$u + 0 = u$</li>
+<li>$u + (-u) = 0$</li>
+<li>$r(s u) = (r s) u$</li>
+<li>$r(u + v) = r u + r v$</li>
+<li>$1 u = u$</li>
+</ol>
+<p>Simply put, a vector in $V$ that is multiplied by a scalar is also in $V$. If the scalar is zero, the resulting vector is zero. Hence, a vector space must always contain a zero vector. The sum of any two vectors in vector space $V$ (possibly multiplied by a scalar) is also in the space.</p>
+<h3 id="vector-space-examples-slide-4">Vector space examples [slide 4]</h3>
+<p><strong>Example: real vectors in $n$ dimensions</strong>
+The vector space $\mathbb{R}^n$ is the space of all real vectors of length $n$.</p>
+<p><strong>Example: polynomials of degree $p$</strong>
+All polynomials of degree $p$ in the variable $x$ on the interval $x \in (x_1, x_2)$ form a vector space. For example, if you add any two cubic polynomials, the results is also a cubic polynomial.</p>
+<h3 id="what-is-a-subspace-slide-5">What is a subspace? [slide 5]</h3>
+<p>A subspace of a vector space is a subset that obeys the rules of a vector space.</p>
+<p><strong>Example: A subspace of $\mathbb{C}^3$</strong>
+All vectors of the form:</p>
+<p>$$ x = \begin{pmatrix} x_1 \ 0 \ x_3 \end{pmatrix} $$</p>
+<p>where $x_1$ and $x_3$ are any complex numbers, come from a subspace of $\mathbb{C}^3$. This subspace consists of all vectors that lie in the $x_1-x_3$ &lsquo;plane&rsquo;.</p>
+<p>Vectors of the form:</p>
+<p>$$ x = \begin{pmatrix} x_1 \ 1 \ x_3 \end{pmatrix} $$</p>
+<p>do not form a subspace since</p>
+<p>$$ x + y = \begin{pmatrix} x_1 + y_1 \ 2 \ x_3 + y_3 \end{pmatrix} $$</p>
+<p>Moreover, it does not contain the zero vector.</p>
+<p><strong>Example: Algebra subspace of polynomials of degree $p$</strong>
+Polynomials of degree $p-1$ form a subspace of the space of all polynomials of degree $p$. A polynomial of degree $p$ contains all the lower order terms, i.e. a space of all quadratic polynomials contains all linear polynomials. The sum of two linear polynomials is also a linear polynomial.</p>
+<h2 id="matrices">Matrices</h2>
+<h3 id="what-is-a-matrix-slide-6">What is a matrix? [slide 6]</h3>
+<p>A matrix $A$ is a linear operator that performs a linear transformation from one vector to another:
+$ A x = b $.
+The above maps the vector $x \in \mathbb{C}^n$ to the vector $b \in \mathbb{C}^m$. We could also express this as $A: \mathbb{C}^n -&gt; \mathbb{C}^m$. This says that the $A$ matrix maps a vector of length $n$ to a vector of length $m$.
+A matrix is a rectangular array of numbers. For example, a $2 \times 3$ matrix has the form:</p>
+<p>$$ A = \begin{pmatrix} A_{11} &amp; A_{12} &amp; A_{13} \ A_{21} &amp; A_{22} &amp; A_{23} \end{pmatrix} $$</p>
+<p>An $m \times n$ matrix comes from the space $\mathbb{C}^{m \times n}$, and we will often write $A \in \mathbb{C}^{m \times n}$.
+A number of operations are defined for matrices, such as addition and multiplication, which you should be familiar with. One to should memorise is $C = A B$ using index notation:</p>
+<p>$$ C_{ij} = \sum_k A_{ik} B_{kj} $$</p>
+<p>Treating a column vector as an $n \times 1$ matrix, we can use the above to compute $A x = b$:</p>
+<p>$$ b_i = \sum_j A_{ij} x_j $$</p>
+<p>It is helpful to think about $b$ as a weighted sum of the columns of $A$, with the $j$th column multiplied by the $j$th entry in $x$.
+Another perspective on matrix-matrix multiplication is via the sum of outer products,</p>
+<p>$$ C = \sum_i a_i b_i^T $$</p>
+<p>where $a_i$ is the $i$th column of $A$ and $b_i$ is the $i$th row of $B$. Note that $a_i b_i^T$ is a rank-1 matrix.</p>
+<h3 id="what-is-the-transpose-and-conjugate-transpose-slide-7">What is the transpose and conjugate transpose? [slide 7]</h3>
+<p>The transpose of a matrix will be familiar,</p>
+<p>$$ (A^T)<em>{ij} = A</em>{ji} $$</p>
+<p>i.e. rows and columns are exchanged. In the context of complex problems, the conjugate transpose, also called hermitian transpose is more relevant:</p>
+<p>$$ (A^H)<em>{ij} = \bar{A</em>{ji}} $$</p>
+<p>where $\bar{x} \in \mathbb{C}$ is the complex conjugate of $x$. Expressed alternatively:</p>
+<p>$$ A^H = \bar{A}^T = \bar{A^T} $$</p>
+<p>For example,</p>
+<p>$$ \begin{pmatrix} A_{11} &amp; A_{12} &amp; A_{13} \ A_{21} &amp; A_{22} &amp; A_{23} \end{pmatrix}^H = \begin{pmatrix} \bar{A_{11}} &amp; \bar{A_{21}} \ \bar{A_{12}} &amp; \bar{A_{22}} \ \bar{A_{13}} &amp; \bar{A_{23}} \end{pmatrix} $$</p>
+<p>Clearly the transpose and the conjugate transpose coincide for real-valued matrices ($A \in \mathbb{R}^{m \times n}$).
+A matrix $M \in \mathbb{C}^{n \times n}$ is Hermitian if</p>
+<p>$$ M^H = M $$</p>
+<p>if the matrix is real-valued, this is the same as the matrix being symmetric. Note that $(A B)^H = B^H A^H$. By extension, $A^H A$ must be Hermitian.
+For real-valued matrices, the distinction between &lsquo;H&rsquo; and &lsquo;T&rsquo; vanishes.</p>
+<h3 id="what-is-the-dotscalarinner-product-slide-8">What is the dot/scalar/inner product? [slide 8]</h3>
+<p>The dot (or scalar) product is an operation between two equal-length vectors that yields a scalar, and is defined by:</p>
+<p>$$ x^H y = \sum_{i=1}^n \bar{x}_i y_i $$</p>
+<p>The dot product yields a complex number, and $x^H y = \bar{y^H x}$.
+The notation $x \cdot y$ is sometimes used. An ambiguity is that this is sometimes defined to be</p>
+<p>$$ x \cdot y = y^H x = \sum_{i=1}^n x_i \bar{y}_i $$</p>
+<p>and other times</p>
+<p>$$ x \cdot y = x^H y = \bar{y^H x} = \sum_{i=1}^n \bar{x}_i y_i $$</p>
+<p>Since $x^H y \neq y^H x$ in the complex case and due to the ambiguity in the definition, we will not use the $\cdot$ notation.
+The dot/scalar product is sometimes called the inner product as it is a inner product, but there are others operations that satisfy the requirements of an inner product.</p>
+<p><em>Complete Examples Paper questions 1 and 2.</em></p>
+<h3 id="what-is-an-eigenpair-slide-9">What is an eigenpair? [slide 9]</h3>
+<p>For an $n \times n$ matrix $A$, $(\lambda, x)$ is an eigenpair of $A$ if</p>
+<p>$$ A x = \lambda x $$</p>
+<p>where $\lambda$ is an eigenvalue of $A$, and $x$ is the corresponding eigenvector of $A$. Recall that $\lambda$ can be equal to zero, but $x$ must be nonzero.
+Recall that the eigenvalues of $A^{-1}$ are the reciprocal of the eigenvalues of $A$.</p>
+<p><strong>Note</strong>
+Revise computation of eigenpairs for small matrices from Part I.</p>
+<h3 id="eigenvalues-of-a-hermitian-matrix-slide-10">Eigenvalues of a Hermitian matrix [slide 10]</h3>
+<p>Hermitian matrices have important properties that generalise those of symmetric matrices of real numbers:</p>
+<ul>
+<li>The eigenvalues of a Hermitian matrix are <em>real</em>.</li>
+<li>The eigenvectors of a Hermitian matrix are orthogonal, i.e. $u_i^H u_j = u_j^H u_i = 0$ when $i \neq j$.</li>
+</ul>
+<p>(Proof in examples paper Q4)</p>
+<h3 id="what-is-a-unitary-matrix-slide-11">What is a unitary matrix? [slide 11]</h3>
+<p>Unitary matrices generalise the concept of orthogonal matrices of real numbers.
+A matrix $Q \in \mathbb{C}^{n \times n}$ is a unitary matrix if $Q^H = Q^{-1}$, i.e. $Q^H Q = Q Q^H = I$.
+A unitary matrix preserves the Euclidian norm of a vector.</p>
+<h3 id="what-is-a-hermitian-positive-definite-matrix-slide-12">What is a Hermitian positive-definite matrix? [slide 12]</h3>
+<p>A Hermitian matrix $M \in \mathbb{C}^{n \times n}$ is positive definite if</p>
+<p>$$ x^H M x &gt; 0 \forall x \in \mathbb{C}^n \setminus {0} $$</p>
+<p>The eigenvalues of a Hermitian positive definite matrix are strictly positive (this is a sufficient condition). Positive-definite matrices are particularly important for quadratic problems, which we will see later.</p>
+<p>A Hermitian matrix $M \in \mathbb{C}^{n \times n}$ is semi-positive definite if</p>
+<p>$$ x^H M x \geq 0 \forall x \in \mathbb{C}^n $$</p>
+<p>which implies that all eigenvalues are positive.
+The matrix $A^H A$ is positive semi-definite (see Examples Paper).</p>
+<h3 id="what-is-the-rank-of-a-matrix-slide-13">What is the rank of a matrix? [slide 13]</h3>
+<p>The rank of a matrix $A \in \mathbb{C}^{m \times n}$ is the number of linearly independent rows or columns (the number is equal). It satisfies:</p>
+<p>$$ \text{rank} A \leq \min(m, n) $$</p>
+<p>A matrix is <em>full rank</em> if</p>
+<p>$$ \text{rank} A = \min(m, n) $$</p>
+<p>and <em>rank deficient</em> if</p>
+<p>$$ \text{rank} A &lt; \min(m, n) $$</p>
+<h3 id="what-is-a-sparse-matrix-slide-14">What is a sparse matrix? [slide 14]</h3>
+<p>A matrix in which most entries are zero is a sparse matrix. Typically, the number of non-zeroes on each row of a sparse matrix will be roughly the same and independent of the matrix size. Sparse matrices are very common in science and engineering, and often arise in connection with methods for solving differential equations, such as finite difference and finite element methods.</p>
+<p>The number of entries in a dense $n \times n$ matrix is $n^2$. For a sparse matrix, the number of entries is $c n$, where $c$ is a small constant (say $c &lt; 30$). For large $n$ the difference in the required storage is substantial.</p>
+<p><strong>Exercise</strong>
+Compare the algorithmic complexity of matrix-vector multiplication for dense and sparse matrices.</p>
+<p><em>Complete Examples Paper questions 3, 4, 5 and 6.</em></p>
+<h2 id="norms">Norms</h2>
+<h3 id="what-is-a-norm-slide-15">What is a norm? [slide 15]</h3>
+<p>A very important concept in linear algebra (and more generally vector spaces) is that of a norm. A norm of an object is a non-negative, real-valued number that is a measure of &lsquo;how big&rsquo; something is and which allows ordering.
+Norms that you will already be familiar with are the absolute value of a number, the modulus of a complex number and the Euclidean norm for vectors $x \in \mathbb{R}^n$:</p>
+<p>$$ ||x|| = \sqrt{x_1^2 + x_2^2 + \dots + x_n^2} = (\sum_{i=1}^n x_i^2)^{1/2} $$</p>
+<p>Denoting a norm of a vector $x$ by $||x||$ (not necessarily the Euclidean norm), a norm is a scalar that satisfies:</p>
+<ul>
+<li>$||x|| &gt; 0$ when $x \neq 0$,</li>
+<li>$||x|| = 0$ when $x = 0$,</li>
+<li>$||k x|| = |k| ||x||$,</li>
+<li>$||x + y|| \leq ||x|| + ||y||$ (triangle inequality).</li>
+</ul>
+<h3 id="vector-norms-slide-16">Vector norms [slide 16]</h3>
+<p>A particular family of norms are known as $l_p$-norms:</p>
+<p>$$ ||x||<em>p = (\sum</em>{i=1}^n |x_i|^p)^{1/p} $$</p>
+<p>(recalling that $|x| = \sqrt{(\text{Re}(x))^2 + (\text{Im}(x))^2}$)). Commonly considered norms are the $l_1$ norm:</p>
+<p>$$ ||x||<em>1 = |x_1| + |x_2| + \dots + |x_n| = \sum</em>{i=1}^n |x_i| $$</p>
+<p>the $l_2$ norm (which we have already seen):</p>
+<p>$$ ||x||<em>2 = (|x_1|^2 + |x_2|^2 + \dots + |x_n|^2)^{1/2} = (\sum</em>{i=1}^n |x_i|^2)^{1/2} $$</p>
+<p>and the $l_\infty$ norm:</p>
+<p>$$ ||x||_\infty = \max_i |x_i| $$</p>
+<p>which is also known as the maximum norm.
+The $l_1$ norm is sometimes called the &rsquo;taxicab norm&rsquo;. Can you see why?
+The Euclidean/$l_2$ norm is written as $||x||_2$, but since it is so frequently used the subscript &lsquo;2&rsquo; is sometimes dropped.
+We can define norms that involve a matrix $A$, subject to some restrictions on the matrix:</p>
+<p>$$ ||x||_A^2 = (x, A x) $$</p>
+<p>where $(., .)$ is an inner product. Defining an inner product is not necessary at this stage, other than to say a common case is $(u, v) = v^H u$. We will see a common example shortly.</p>
+<p><strong>Example: computing different norms for the same vector</strong>
+Compute the $l_1, l_2$ and $l_\infty$ norms for the vector</p>
+<p>$ x = (2, -3, 7, 4) $</p>
+<ul>
+<li>$l_1$ norm: $||x||_1 = |2| + |-3| + |7| + |4| = 16$</li>
+<li>$l_2$ norm: $||x||_2 = (2^2 + 3^2 + 7^2 + 4^2)^{1/2} = \sqrt{78} \approx 8.83$</li>
+<li>$l_\infty$ norm: $||x||_\infty = \max_i |x_i| = 7$</li>
+</ul>
+<h3 id="example-different-norms-measure-differently-slide-17">Example: different norms measure differently [slide 17]</h3>
+<p>Consider the two vectors</p>
+<p>$ x = (3, 3, 3) $
+$ y = (0, 0, 9) $</p>
+<ul>
+<li>
+<p>Consider first the $l_1$ norm:
+$||x||_1 = |3| + |3| + |3| = 9$
+$||y||_1 = |9| = 9$
+In the $l_1$ norm $y$ and $x$ have the &lsquo;same magnitude&rsquo;.</p>
+</li>
+<li>
+<p>Now the $l_2$ norm:
+$||x||_2 = (3^2 + 3^2 + 3^2)^{1/2} = \sqrt{27} \approx 5.20$
+$||y||_2 = (9^2)^{1/2} = \sqrt{81} = 9$
+In the $l_2$ norm $y$ is &lsquo;bigger&rsquo; than $x$.</p>
+</li>
+<li>
+<p>Now the $l_\infty$ norm:
+$||x||<em>\infty = 3$
+$||y||</em>\infty = 9$
+In the $l_\infty$ norm $y$ is three times &lsquo;bigger than&rsquo; $x$.</p>
+</li>
+</ul>
+<p>Note that $||x||_2^2 = x^H x$.</p>
+<h3 id="unit-sphere-and-unit-shell-slide-18">Unit sphere and unit shell [slide 18]</h3>
+<p>It common to refer to to the <em>unit ball</em> or <em>unit sphere</em> for a given norm.</p>
+<p>Unit ball (open)
+$ { x \in V : ||x|| &lt; 1 } $</p>
+<p>Unit ball (closed)
+$ { x \in V : ||x|| \leq 1 } $</p>
+<p>Unit sphere
+$ { x \in V : ||x|| = 1 } $</p>
+<p>The &lsquo;shape&rsquo; depends on the chosen norm.</p>
+<h3 id="example-norm-induced-by-a-matrix-slide-19">Example: norm induced by a matrix [slide 19]</h3>
+<p>Linear systems $A x = b$ where the components of $x$ have units of length and the components of $b$ have units of force arise often in engineering and physics. It then follows that $x^H A x$ will have units of energy. We can use this to define a norm of $x$:</p>
+<p>$$ ||x||_A^2 = x^H A x $$</p>
+<p>For the above to obey the rules at the start of this section to qualify as a norm, $A$ must be positive definite. $A$ being positive definite implies that: (a) the energy is non-negative; and (b) the energy is zero only if $x = 0$. The above norm is often called the <em>energy norm</em>.</p>
+<h3 id="matrix-norms-slide-20">Matrix norms [slide 20]</h3>
+<p>Norms can be defined for matrices, but they are less intuitive (at first) than norms of vectors, and can be more expensive to compute.</p>
+<h3 id="operator-norms-slide-21">Operator norms [slide 21]</h3>
+<p>A norm of a matrix $A$ is defined as:</p>
+<p>$$ ||A|| = \max_{x \in \mathbb{C}^n \setminus {0}} (||A x||) / (||x||) $$</p>
+<p>This norm measures the &lsquo;maximum amount&rsquo; by which the matrix $A$ can re-scale a vector $x$ (in relative terms). From eq. (3), we can write:</p>
+<p>$$ ||A x|| \leq ||A|| ||x|| \forall x $$</p>
+<p>Matrix norms obey the rules at the start of section, and it follows from the definition that</p>
+<p>$$ ||A B|| \leq ||A|| ||B|| $$</p>
+<p>To quantify the &lsquo;size&rsquo; of the original vector $x$ and the transformed vector $A x$, we need to choose a norm for the vectors.
+Starting with $||A||_1$ (1-norm):</p>
+<p>$$ ||A||<em>1 = \max</em>{x \in \mathbb{C}^n \setminus {0}} (||A x||<em>1) / (||x||<em>1) = \max_j \sum</em>{i=1}^n |a</em>{ij}| $$</p>
+<p>which is the $l_1$-norm of the column of $A$ with the maximum $l_1$-norm.
+For $||A||_\infty$ (infinity-norm):</p>
+<p>$$ ||A||<em>\infty = \max</em>{x \in \mathbb{C}^n \setminus {0}} (||A x||<em>\infty) / (||x||</em>\infty) = \max_i \sum_{j=1}^n |a_{ij}| $$</p>
+<p>which is the $l_1$-norm of the row of $A$ with the maximum $l_1$-norm. Proving the above two expressions is a question in the Examples Paper.
+For $||A||_2$ (2-norm), we will first square both sides of eq. (3):</p>
+<p>$$ ||A||<em>2^2 = \max</em>{x \in \mathbb{C}^n \setminus {0}} (||A x||_2^2) / (||x||<em>2^2) = \max (x^H A^H A x) / (x^H x) = \lambda</em>{\max}(A^H A) $$</p>
+<p>where $\lambda_{\max}(A^H A)$ is the largest eigenvalue of $A^H A$ (recall that $A^H A$ is positive semi-definite, so all eigenvalues are positive).
+The norm $||A||_2$ is therefore the square root of the largest eigenvalue of $A^H A$, or the largest singular values of $A$.
+In the case that $A$ is Hermitian, the eigenvalues of $A^H A$ are the square of the eigenvalues of $A$. Hence, if $A$ is Hermitian $||A||<em>2 = |\lambda|</em>{\max}(A)$.</p>
+<h3 id="invariance-of-the-2-norm-under-rotation-slide-22">Invariance of the 2-norm under rotation [slide 22]</h3>
+<p>The vector and matrix 2-norms are invariant under &lsquo;rotation&rsquo;, i.e. for $x \in \mathbb{C}^n$</p>
+<p>$$ ||Q x||_2 = ||x||_2 $$</p>
+<p>and for $A \in \mathbb{C}^{n \times m}$</p>
+<p>$$ ||Q A||_2 = ||A||_2 $$</p>
+<p>where $Q$ is a unitary matrix.</p>
+<h3 id="frobenius-norm-slide-23">Frobenius norm [slide 23]</h3>
+<p>Some matrix norms treat the entries of a matrix l(i k)e the entries of a vector. One such norm is the Frobenius norm. It is defined by:</p>
+<p>$$ ||A||<em>F = \sqrt{\sum_i \sum_j |A</em>{ij}|^2} $$</p>
+<p>The Frobenius norm is also invariant under rotation,</p>
+<p>$$ ||Q A||_F = ||A||_F $$</p>
+<p>where $Q$ is a unitary matrix.
+Unless otherwise stated, when referring to matrix norms we mean operator norms.</p>
+<h3 id="which-norm-to-choose-slide-24">Which norm to choose? [slide 24]</h3>
+<p>Choosing a norm can depend on what we want to measure (what we want to &lsquo;weight&rsquo; as important), and what fits naturally with a particular algorithm. We will see that some norms are easier to work with than others, so the choice is often pragmatic.
+A technical point is that on the vector spaces that we consider, all norm are <em>equivalent</em>, which means that there exist constants $c_1 &gt; 0$ and $c_2 &gt; 0$ (but which typically depend on the dimension $n$) such that:</p>
+<p>$$ c_1 ||x||_a \leq ||x||_b \leq c_2 ||x||_a \forall x \in V $$</p>
+<h1 id="stability-and-condition-number">Stability and condition number</h1>
+<h2 id="stability-of-operations">Stability of operations</h2>
+<h3 id="stability-slide-25">Stability [slide 25]</h3>
+<p>Large linear systems of the form $A x = b$ are solved by computers. When solving with a computer, round-off error cannot be avoided. The important question is whether or not round-off errors will have a significant impact on the accuracy of the computed solution.
+We can bound the error in terms of a quantity called the condition number.
+The condition number of an invertible matrix $A$ is:</p>
+<p>$$ \kappa(A) = ||A|| ||A^{-1}|| $$</p>
+<p>To be concrete, we need to select a norm.</p>
+<h3 id="condition-number-in-the-2-norm-slide-26">Condition number in the 2-norm [slide 26]</h3>
+<p>For the 2-norm, we see that</p>
+<p>$$ \kappa_2(A) = \sqrt{\lambda_{\max}(A^H A) / \lambda_{\min}(A^H A)} $$</p>
+<p>since the eigenvalues of $A^{-1}$ are the reciprocal of the eigenvalues of $A$. if $A$ is Hermitian,</p>
+<p>$$ \kappa_2(A) = |\lambda_{\max}(A)| / |\lambda_{\min}(A)| $$</p>
+<h2 id="error-bounds">Error bounds</h2>
+<h3 id="bounding-the-error-when-solving-linear-systems-slide-27">Bounding the error when solving linear systems [slide 27]</h3>
+<p>Consider the problem</p>
+<p>$$ A(x + \delta x) = b + \delta b $$</p>
+<p>where $\delta b$ is the error in the RHS and $\delta x$ is the consequent error in the solution. Since $b = A x$ and $\delta x = A^{-1} \delta b$, we have</p>
+<p>$$ ||\delta x|| / ||x|| \leq \kappa(A) ||\delta b|| / ||b|| $$</p>
+<p>This shows how an error in $b$ can propagate through to the solution $x$. For large condition numbers we can expect small errors in $b$ to cause large errors in $x$.
+An alternative, and sometimes more relevant scenario, is an error in the matrix $A$:</p>
+<p>$$ (A + \delta A)(x + \delta x) = b $$</p>
+<p>For example, the term $\delta A$ could represent the floating point errors introduced when performing an LU decomposition. In this case,</p>
+<p>$$ ||\delta x|| / ||x|| \leq \kappa(A) ||\delta A|| / ||A|| $$</p>
+<p>A matrix with a large condition number is said to be <em>ill-conditioned</em>.
+It is important to note the distinction between the determinant and the condition number of a matrix. A small determinant does not necessarily mean that a matrix is ill-conditioned, and a moderate determinant does not mean that a matrix well conditioned.
+Some examples are presented below, and larger examples can be found in the online Jupyter notebooks, and in particular for the notoriously ill-conditioned Hilbert matrix.</p>
+<h3 id="example-ill-conditioned-system-slide-28">Example: ill-conditioned system [slide 28]</h3>
+<p>Consider the problem</p>
+<p>$$ \begin{pmatrix} 1 &amp; 2 \ 2 &amp; 4.0001 \end{pmatrix} \begin{pmatrix} x_1 \ x_2 \end{pmatrix} = \begin{pmatrix} b_1 \ b_2 \end{pmatrix} $$</p>
+<ul>
+<li>When $b = (2, 4.0001)^T$, the solution is $x = (0, 1)^T$.</li>
+<li>When $b = (2, 4)^T$, the solution is $x = (2, 0)^T$.</li>
+</ul>
+<p>We see here that a small change in the RHS leads to a very significant change in the solution. The eigenvalues are 5 and $2 \cdot 10^{-5}$, and the condition number for the 2-norm is 250,000.</p>
+<h3 id="example-moderate-determinant-large-condition-number-slide-29">Example: moderate determinant, large condition number [slide 29]</h3>
+<p>The $n \times n$ matrix
+$ A = \begin{pmatrix} 1 &amp; -1 &amp; \dots \ 0 &amp; 1 &amp; -1 &amp; \dots \ \dots &amp; &amp; &amp; 1 \end{pmatrix} $ (upper triangular with 1 on diagonal, -1 on super-diagonal)
+has $\det(A) = 1$ and $k_\infty(A) = n 2^{n-1}$, hence the condition number becomes very large as $n$ increases, despite the determinant remaining constant at one.</p>
+<h3 id="example-small-determinant-small-condition-number-slide-30">Example: small determinant, small condition number [slide 30]</h3>
+<p>The very simple $n \times n$ diagonal matrix</p>
+<p>$$ D = \text{diag}(0.1, 0.1, \dots, 0.1) $$</p>
+<p>has $\det(D) = 10^{-n}$ and $k_D(D) = 1$.</p>
+<p><strong>Conditioning and determinant</strong>
+Conditioning should not be confused with the determinant.</p>
+<p><em>Complete Examples Paper questions 7, 8, 9, 10 and 11.</em></p>
+<h1 id="interpolation-and-least-squares-methods">Interpolation and least-squares methods</h1>
+<h2 id="interpolation">Interpolation</h2>
+<p>Interpolation is fitting a function to a data set that passes through the data points.</p>
+<h3 id="polynomial-interpolation-slide-31">Polynomial interpolation [slide 31]</h3>
+<p>if we have $n$ data points in a two-dimensional space $(x, y)$ we can usually fit a polynomial with $n$ coefficients. Say we have 6 data points $f = (f_0(x_0, y_0), \dots, f_5(x_5, y_5))^T$. We can (hopefully) interpolate the data points with a polynomial of the form:</p>
+<p>$$ f(x, y) = c_0 + c_1 x + c_2 y + c_3 x y + c_4 x^2 + c_5 y^2 $$</p>
+<p>We have six equations (one for each data point)</p>
+<p>$$ f_i = c_0 + c_1 x_i + c_2 y_i + c_3 x_i y_i + c_4 x_i^2 + c_5 y_i^2 $$</p>
+<p>and we can solve</p>
+<p>$$ \begin{pmatrix} 1 &amp; x_0 &amp; y_0 &amp; x_0 y_0 &amp; x_0^2 &amp; y_0^2 \ \dots &amp; \dots &amp; \dots &amp; \dots &amp; \dots &amp; \dots \ 1 &amp; x_5 &amp; y_5 &amp; x_5 y_5 &amp; x_5^2 &amp; y_5^2 \end{pmatrix} \begin{pmatrix} c_0 \ \dots \ c_5 \end{pmatrix} = \begin{pmatrix} f_0 \ \dots \ f_5 \end{pmatrix} $$</p>
+<h3 id="issues-with-polynomial-interpolation-slide-32">Issues with polynomial interpolation [slide 32]</h3>
+<ul>
+<li>As long as $A$ can be solved, i.e. the points do not all lie on a line, we can find the interpolating polynomial.</li>
+<li>The matrix $A$ is known as the Vandermonde matrix. It is a notoriously ill-conditioned matrix, and the condition number grows with increasing polynomial degree.</li>
+<li>Polynomial interpolation can be very sensitive to the choice of interpolation points.</li>
+</ul>
+<h3 id="interpolating-a-function-slide-33">Interpolating a function [slide 33]</h3>
+<p>We consider the Runge function $f = 1/(1 + 25x^2)$ and interpolate it at five equally spaced points $x \in [-1, 1]$. We can fit a polynomial of degree four to the points:</p>
+<p>[Figure: Points of the Runge function interpolated by a polynomial]
+<strong>Note the oscillations towards the end of the interval.</strong>
+Condition number $k_2 = 2.35 \times 10^1$.</p>
+<h3 id="interpolating-a-function-higher-degree-slide-34">Interpolating a function: higher degree [slide 34]</h3>
+<p>Perhaps a interpolating polynomial of degree 12 will provide a better approximation:</p>
+<p>[Figure: Points of the Runge function interpolated by a polynomial]
+Condition number $k_2 \approx 1.23 \times 10^5$.</p>
+<h3 id="interpolating-a-function-higher-degree-issue-slide-35">Interpolating a function: higher degree issue [slide 35]</h3>
+<p>The amplitude of the oscillations near the ends of the domain are more severe at higher order. The is know as the Runge effect, and is particularly severe for high order interpolating polynomials with equispaced points.
+A second, less obvious issue, is that the condition number of the Vandermonde matrix becomes very large as the polynomial degree is increased (see Jupyter notebooks), making numerical instability l(i k)ely.</p>
+<h3 id="orthogonal-polynomials-slide-36">Orthogonal polynomials [slide 36]</h3>
+<p>A remarkably rich area that we will only briefly touch upon is orthogonal polynomials. So far we have considered the mononomial base $1, x, x^2, \dots, x^{n-1}$ and polynomials of the form</p>
+<p>$$ f = c_{n-1} x^{n-1} + c_{n-2} x^{n-2} + \dots + c_1 x + c_0 $$</p>
+<p>where we would pick (or solve for in the case of interpolation) the coefficients ${c_i}$.
+There are alternatives to the monomial basis and which have a range of fascinating properties (far too many to cover).</p>
+<h3 id="legendre-polynomials-slide-37">Legendre polynomials [slide 37]</h3>
+<p>We will consider Legendre polynomials on the internal $[-1, 1]$. There are various expressions computing the Legendre polynomials. One expression for $P_n$, is:</p>
+<p>$$ (n+1)P_{n+1}(x) = (2n+1)x P_n(x) - n P_{n-1}(x) $$</p>
+<p>where $P_0 = 1$ and $P_1 = x$. The special feature of Legendre polynomial is that:</p>
+<p>$$ \int_{-1}^1 P_m(x) P_n(x) d\text{if} x = 0 \text{if} m \neq n $$</p>
+<p>i.e. Legendre polynomials of different degree are orthogonal to each other.</p>
+<h3 id="legendre-vs-mononomial-basis-slide-38">Legendre vs mononomial basis [slide 38]</h3>
+<p>The Legendre polynomials:</p>
+<p>[Figure: Legendre polynomials of degree up to 9]
+appear remarkably different from the mononimial basis:
+[Figure: Monomial basis up to degree 9]</p>
+<h3 id="interpolation-using-legendre-polynomial-slide-39">Interpolation using Legendre polynomial [slide 39]</h3>
+<p>Legendre polynomials of degree up to and including $n$ span the same space as $1, x, x^2, \dots, x^n$, so we can express any polynomial of degree $n$ as</p>
+<p>$$ f = \alpha_n P_n(x) + \alpha_{n-1} P_{n-1}(x) + \dots + \alpha_0 P_0(x) $$</p>
+<p>To find the ${\alpha_n}$ coefficients we can construct a generalised Vandermonde matrix $A$ and solve $A \alpha = y_p$.</p>
+<h3 id="vandermode-matrix-with-legendre-polynomials-slide-40">&lsquo;Vandermode matrix&rsquo; with Legendre polynomials [slide 40]</h3>
+<p>The matrix with Legendre polynomials is</p>
+<p>$$ A = \begin{pmatrix} P_n(x_0) &amp; P_{n-1}(x_0) &amp; \dots &amp; P_0(x_0) \ \dots &amp; \dots &amp; \dots &amp; \dots \ P_n(x_n) &amp; P_{n-1}(x_n) &amp; \dots &amp; P_0(x_n) \end{pmatrix} $$</p>
+<p>In exact arithmetic both bases would compute the same polynomial.
+Comparing the Vandermonde matrix on $[-1, 1]$ with equispaced points and $n=20$:</p>
+<ul>
+<li>Legendre basis: $k_2 = 2.72 \times 10^5$</li>
+<li>Monomial basis: $k_2 = 7.25 \times 10^8$
+(see Jupyter notebook)</li>
+</ul>
+<h3 id="how-good-is-a-polynomial-interpolant-slide-41">How good is a polynomial interpolant? [slide 41]</h3>
+<p>For an function $f$, where $p_n$ is the best approximation of $f$ amongst all polynomials of degree $n$ and $p_i$ is the degree-n polynomial interpolant of $f$, then</p>
+<p>$$ ||f - p_i|| \leq (\Lambda(T) + 1) ||f - p_n|| $$</p>
+<p>where $\Lambda(T)$ is the Lebesgue constant. It depends on the choice of interpolation points $T$.
+Beyond the scope of 3M1, but necessary for the above is the concept of a function norm. The simplest (and most commonly used) is the $L^2$-norm:</p>
+<p>$$ ||f||<em>2 = (\int</em>\Omega f^2 d\text{if} x)^{1/2} $$</p>
+<p>It is clear from earlier examples that exhibited the Runge effect that a polynomial that interpolated a function can be a very poor fit to the function at other points.</p>
+<h3 id="interpolation-with-non-equispaced-points-slide-42">Interpolation with non-equispaced points [slide 42]</h3>
+<p>It turns out that we can mitigate the Runge effect by using non-equispaced sampling points, and particularly good points are the roots of some orthogonal polynomials. Note from the plot of the Legendre polynomials that the roots tend to cluster close to the ends of the interval.</p>
+<h3 id="interpolation-with-non-equispaced-points-slide-43">Interpolation with non-equispaced points [slide 43]</h3>
+<p>Interpolation of the Runge function with a polynomial of degree 25 and using (i) equispaced points and (ii) the roots of the Legendre polynomials as sampling points:</p>
+<p>[Figure: Interpolation with Legendre roots vs equispaced points]</p>
+<p>For equispaced points, the Lebesgue constant grows exponentially in $n$. For Chebyshev points (roots of a family of orthogonal polynomials) the Lebesgue constant grows logarithmically in $n$.</p>
+<h2 id="chebyshev-polynomials">Chebyshev polynomials</h2>
+<h3 id="chebyshev-polynomials-definition-slide-44">Chebyshev polynomials: definition [slide 44]</h3>
+<p>To be used later, we introduce the Chebyshev polynomials:</p>
+<p>$$ T_n(\cos \theta) = \cos(n \theta), \quad \theta \in [0, \pi] $$</p>
+<p>or</p>
+<p>$$ T_n(x) = \cos(n \arccos x), \quad x \in [-1, 1] $$</p>
+<p>The Chebyshev polynomial $T_n$ has $n+1$ extreme values, and the values have alternating sign:
+$||T_n||_\infty = 1$, $T_n(x_k) = (-1)^k$ where $x_k = \cos(\pi k / n)$, $k=0, \dots, n$.
+and $n$ distinct roots in $[-1, 1]$:
+$T_n(t_k) = 0$ where $t_k = \cos((2k-1)\pi/(2n))$, $k=1, \dots, n$.</p>
+<h3 id="chebyshev-polynomials-orthogonality-slide-45">Chebyshev polynomials: orthogonality [slide 45]</h3>
+<p>Consider</p>
+<p>$$ \int_0^\pi \cos(n \theta) \cos(m \theta) d \theta = \begin{cases} 0 &amp; \text{if } n \neq m \ \pi &amp; \text{if } n=m=0 \ \pi/2 &amp; \text{if } n=m \neq 0 \end{cases} $$</p>
+<p>Introducing the substitution $x := \cos \theta -&gt; d\text{if} x = -\sin \theta d \theta = -\sqrt{1-x^2} d \theta$, we have:</p>
+<p>$$ \int_{-1}^1 (T_n(x) T_m(x))/\sqrt{1-x^2} d\text{if} x = \begin{cases} 0 &amp; \text{if } n \neq m \ \pi &amp; \text{if } n=m=0 \ \pi/2 &amp; \text{if } n=m \neq 0 \end{cases} $$</p>
+<h3 id="chebyshev-polynomials-are-polynomials-slide-46">Chebyshev polynomials are polynomials [slide 46]</h3>
+<p>Straightforwardly,
+$ T_0(x) = 1 $
+$ T_1(x) = x $
+Using the identity $\cos(a \pm b) = \cos a \cos b \mp \sin a \sin b$, we can derive
+$ \cos(n \theta) = 2 \cos \theta \cos((n-1)\theta) - \cos((n-2)\theta) $
+leading to, for $n \geq 2$,
+$ T_n(x) = 2x T_{n-1}(x) - T_{n-2}(x) $</p>
+<h3 id="chebyshev-basis-slide-47">Chebyshev basis [slide 47]</h3>
+<p>[Figure: Chebyshev polynomials]</p>
+<h3 id="a-chebyshev-minmax-property-slide-48">A Chebyshev &lsquo;minmax&rsquo; property [slide 48]</h3>
+<p>For $y \notin (-1, 1)$, the solution to
+$ \min { ||p(x)||_\infty : p \in P_n, -1 \leq x \leq 1, p(y) = 1 } $
+is $1/|T_n(y)|$.</p>
+<p><strong>Message</strong>: on the interval $[-1, 1]$, of all polynomials of degree $n$ that are equal to 1 at the fixed point $y$ outside of interval, the polynomial $T_n(x)/T_n(y)$ has the smallest deviation from zero.</p>
+<h2 id="data-fitting">Data fitting</h2>
+<h3 id="over-determined-systems-residual-slide-49">Over-determined systems: residual [slide 49]</h3>
+<p>To find a solution to the problem $A x = b$, the vector $b$ must lie in the column space of $A$ (look back over your IB notes if you need to review this concept). if $A$ is an $m \times n$ matrix and $m &gt; n$ (a skinny matrix), we have more equations than unknowns and in general there will be no solution.
+For some vector $x$, we can define a &lsquo;residual&rsquo; vector $r$:</p>
+<p>$$ r = A x - b $$</p>
+<h3 id="over-determined-systems-norm-minimisation-slide-50">Over-determined systems: norm minimisation [slide 50]</h3>
+<p>To find an approximate solution to $A x = b$, we can search for a vector $x$ that minimises the residual in some norm:</p>
+<p>$$ \min_x ||r(x)|| = \min_x ||A x - b|| $$</p>
+<p>This says: find $\hat{x}$ that minimises the residual $r$ in the chosen norm.
+The residual is a vector, so we need a way to compare different residual vectors to decide if one is smaller than another. For this we need to pick a norm in which to minimise the residual. Different norms will give different results, and it turns out that one norm will be much easier to work with than others.</p>
+<h3 id="minimising-the-error-in-the-l_2-norm-slide-51">Minimising the error in the $l_2$ norm [slide 51]</h3>
+<p>if we use the $l_2$-norm for the problem in eq. (6), we seek:</p>
+<p>$$ \min_x ||A x - b||_2 $$</p>
+<p>Squaring $||A x - b||_2$ and expanding with indice:
+$ r(x) = ||A x - b||_2^2 = (A x - b)^H (A x - b) = x^H A^H A x - x^H A^H b - b^H A x + b^H b $
+which is the least-squares error. Hence, minimisation in the $l_2$-norm is known as the least-squares method.
+Equation (8) is clearly quadratic in $x$. To find $\hat{x}$ that minimises $r$, we can differentiate $r$ and set the derivative equation to zero.
+This gives the classic least-squares problem, also known as the normal equations:</p>
+<p>$$ A^H A \hat{x} = A^H b $$</p>
+<p>Note that a matrix of the form $A^H A$ is known as a normal matrix.
+Re-arranging the least-squares problem:</p>
+<p>$$ \hat{x} = (A^H A)^{-1} A^H b = A^+ b $$</p>
+<h3 id="pseudoinverse">Pseudoinverse</h3>
+<p>The matrix $A^+ = (A^H A)^{-1} A^H$ is known as the pseudoinverse or the Moore-Penrose inverse. The inverse $(A^H A)^{-1}$ can be computed when $A$ is full rank, i.e. the columns of $A$ are linearly independent (see Examples Paper). In this section, $A$ has been a &lsquo;skinny matrix&rsquo;, i.e. $m &gt; n$. if $A$ is &lsquo;fat matrix&rsquo; ($m &lt; n$) and full rank, then $A^+ = A^H (A A^H)^{-1}$.
+There are cases where $A$ is not full rank, in which case the problem is under-determined and there are multiple solutions to the least-squares problem. We will look at strategies to handle this case once we have covered the singular value decomposition.</p>
+<h3 id="example-fitting-a-linear-polynomial-to-a-dataset-in-two-dimensions-slide-52">Example: fitting a linear polynomial to a dataset in two dimensions [slide 52]</h3>
+<p>At the start of this section, we considered polynomial interpolation of six data points in a two-dimensional space. We now consider a least-squares fit with the linear polynomial</p>
+<p>$$ f(x, y) = c_0 + c_1 x + c_2 y $$</p>
+<p>We have six equations of the form</p>
+<p>$$ f_i(x_i, y_i) = c_0 + c_1 x_i + c_2 y_i $$</p>
+<p>and we can solve the normal equations.</p>
+<h3 id="least-squares-fit-of-points-on-the-runge-graph-slide-53">Least-squares fit of points on the Runge graph [slide 53]</h3>
+<p>We consider the problem we looked at earlier for polynomial interpolation. if we fit a 10th-order polynomial to 20 points:</p>
+<p>[Figure: Least-squares fit of 20 points (10th order)]
+The fit to the data looks reasonable. Fitting a 5rd-order polynomial:
+[Figure: Least-squares fit of 20 points (5th order)]
+we can see some difference between the fit (solid line) and the data points. Fitting a quadratic function:
+[Figure: Least-squares fit of 20 points (quadratic)]
+The fit is expectedly very poor.</p>
+<h3 id="solving-least-squares-problems-in-practice-slide-54">Solving least squares problems in practice [slide 54]</h3>
+<p>To solve the least squares problem $A^H A x = A^H b$, if $A$ is full rank we could apply LU factorisation to $A^H A$ (or more specially, Cholesky factorisation since $A^H A$ is Hermitian). A problem is that $A^H A$ is notoriously ill-conditioned, and the conditioning deteriorates as the matrix becomes larger.
+Least-squares methods are usually solved using specialised methods that can manage the ill-conditioning of $A^H A$. QR factorisation (recall from Part IB) is better than LU, but can also suffer from accuracy/stability problems.</p>
+<p><strong>Note</strong>
+In practice, do not write your own least-squares solver. Use a specialised function or library.</p>
+<p><em>Complete Examples Paper questions 12 and 13.</em></p>
+<h3 id="minimising-in-other-norms">Minimising in other norms</h3>
+<p>Least-squares/2-norm minimisation is popular because the residual is quadratic, so when we take the derivative the minimisation problem becomes linear and is straightforward to solve. Also, being quadratic it will have a unique minimum (if $A$ is full rank).
+We could pick another norm in which to minimise the error. The use of the 1-norm has become popular in recent years for some applications (e.g., compressed sensing). It is known as least absolute deviations. An issue with least-squares fitting is that it is sensitive to data outliers; the square of the &rsquo;error&rsquo; amplifies the effect on the fitted function. Minimisation in the 1-norm is less sensitive to outliers.
+The difficulty with norms other than the 2-norm is that the minimisation problem is non-linear, and therefore more challenging to solve.</p>
+<h1 id="iterative-methods-for-linear-systems">Iterative methods for linear systems</h1>
+<h2 id="direct-and-iterative-methods">Direct and iterative methods</h2>
+<p>We often want to solve a system of the form $A x = b$. Solution methods can be categorised as direct or iterative.</p>
+<h3 id="direct-methods-slide-55">Direct methods [slide 55]</h3>
+<p>A direct method computes a solution to $A x = b$ in a known/predictable number of operations. In the absence of round-off errors, the solution is exact. Solving a system via LU decomposition ($A x = L U x = b$) is an example of a direct method.</p>
+<ul>
+<li>For an dense $n \times n$ matrix, LU decomposition has complexity $O(n^3)$, which makes it very expensive for large matrices.</li>
+<li>For a sparse $n \times n$, the LU complexity is typically in the range $O(n^{3/2})$ and $O(n^2)$. This is clearly better than $O(n^3)$, but still expensive for large $n$.</li>
+<li>A more specialised point, direct methods cannot generally handle singular equations, i.e. matrices with a non-trivial nullspace.</li>
+<li>For reasonably conditioned systems, direct solvers can be robust, i.e. will reliably compute a solution.</li>
+<li>Direct solvers do not scale well on parallel computers since the substitution steps are inherently serial.</li>
+</ul>
+<h3 id="iterative-methods-slide-56">Iterative methods [slide 56]</h3>
+<p>An iterative method seeks an approximate solution via a series of steps (iterations), and is usually terminated when the error/residual falls below a prescribed threshold (in the chosen norm!).
+There are many iterative methods for solving problems in linear algebra. In general, these methods can sometimes be very fast, but can be slow or fail abjectly.
+For useful iterative solvers:</p>
+<ul>
+<li>In some cases $O(n)$ schemes are possible (this is known as an optimal solver), and iterative solvers can be orders of magnitude faster than direct solvers.</li>
+<li>Use less memory than direct solvers.</li>
+<li>Some methods can solve singular problems.</li>
+<li>Iterations can be terminated early if high accuracy is not required.</li>
+<li>Iterative are often (but not always) suited to large, parallel computers.</li>
+</ul>
+<h2 id="an-iterative-method-for-the-largest-eigenvalue-and-eigenvector">An iterative method for the largest eigenvalue and eigenvector</h2>
+<h3 id="power-iteration-slide-57">Power iteration [slide 57]</h3>
+<p>A classic iterative method for finding the eigenvector associated with the largest absolute eigenvalue of a matrix is known as power iteration. Recall that a vector $x \in \mathbb{C}^n$ can be expressed in terms of the $n$ eigenvectors of an $n \times n$ matrix:</p>
+<p>$$ x = \sum_{i=1}^n \alpha_i u_i $$</p>
+<p>where $\alpha_i \in \mathbb{R}$. if we multiple $x$ repeatedly by $A$:</p>
+<p>$$ A^k x = \sum_{i=1}^n \alpha_i \lambda_i^k u_i $$</p>
+<p>we see that if the largest eigenvalue is distinct the resulting vector will be aligned with the eigenvector of the largest eigenvector (if $x$ has a component in the direction of the eigenvector).
+The power iteration method is demonstrated in the Jupyter notebooks, where it is seen shown that convergence can be slow.
+if we have an approximation of the eigenvector associated with $\lambda_{\max}$, a question is how can we find an approximation of $\lambda_{\max}$? In Part IA, you used the scaling from $A^k x$ to $A^{k+1} x$. However this can be very unreliable. There is a better way.</p>
+<h3 id="rayleigh-quotient-slide-58">Rayleigh quotient [slide 58]</h3>
+<p>Say we have an estimate of an eigenvector $x$ of the matrix $A$, in which case: $A x \approx \lambda x$.
+To find an estimate of the corresponding eigenvalue $\lambda^*$, we could pose a minimisation problem in the 2-norm:</p>
+<p>$$ \min_{\lambda^* \in \mathbb{C}} ||A x - \lambda^* x||_2 $$</p>
+<p>This is minimised when</p>
+<p>$$ \lambda^* = R(A, x) = (x^H A x) / (x^H x) $$</p>
+<p>where $R$ is known as the Rayleigh quotient.
+The Rayleigh quotient is often defined as being for Hermitian matrices only, in which case it must be real-valued. For Hermitian matrices it has a number of special properties, including second-order accuracy for estimating eigenvalues. That is, if the error in the eigenvector is $O(\epsilon)$, then the error in the eigenvalue estimated via the Rayleigh quotient is $O(\epsilon^2)$.</p>
+<h2 id="stationary-methods-for-a-x--b">Stationary methods for $A x = b$</h2>
+<h3 id="family-of-stationary-methods-slide-59">Family of stationary methods [slide 59]</h3>
+<p>We start with a family of simple methods for finding approximate solutions to $A x = b$. We decompose the matrix operator such that $A = N - P$. Rather than solving the exact problem, we solve</p>
+<p>$$ N x = b + P x $$</p>
+<p>iteratively. We compute an approximate solution $x_{k+1}$:</p>
+<p>$$ N x_{k+1} = b + P x_k $$</p>
+<p>where $x_k$ is the most recent known estimate of the solution, and the above equation is solved to compute the for the new estimate $x_{k+1}$. The process is then repeated to hopefully converge to the exact solution.
+The key is to split $A$ such that equations of the form $N x = f$ are easy (inexpensive) to solve. Classic examples are:</p>
+<ul>
+<li>Richardson iteration: $N = I$.</li>
+<li>Jacobi method: $N = \text{diag}(A)$.</li>
+<li>Gauss-Seidel: $N = L(A)$ is the lower triangular part of $A$ (including the diagonal).</li>
+</ul>
+<p>To understand whether or not we can expect these iterative methods to work, we need to examine what happens to the error as we iterate.</p>
+<h3 id="convergence-slide-60">Convergence [slide 60]</h3>
+<p>Defining the error at the $k$th iterate $e_k = x_{\text{exact}} - x_k$, from eq. (10) we have:</p>
+<p>$$ N e_{k+1} = P e_k $$</p>
+<p>and therefore</p>
+<p>$$ e_{k+1} = N^{-1} P e_k $$</p>
+<p>To converge, we need the error to approach zero as the number of iterations $k$ increases. We express the error vector $e_0$ as a linear combination of the eigenvectors of $N^{-1} P$:</p>
+<p>$$ e_0 = c_1 u_1 + \dots + c_n u_n $$</p>
+<p>and the error $e_k$ as</p>
+<p>$$ e_k = (N^{-1} P)^k e_0 = c_1 \lambda_1^k u_1 + \dots + c_n \lambda_n^k u_n $$</p>
+<p>The method will converge only if the absolute value of every eigenvalue is less than one.
+The largest absolute eigenvalue of a matrix $A$ is often denoted by $\rho(A)$ and is known as the spectral radius.
+The stationary methods based on splitting will converge if</p>
+<p>$$ \rho(N^{-1} P) &lt; 1 $$</p>
+<p>The smaller $\rho &lt; 1$, the faster the convergence. Examples of the Jacobi and Gauss-Seidel methods for a $50 \times 50$ matrix are presented in the Jupyter notebooks.</p>
+<h2 id="conjugate-gradient-method">Conjugate gradient method</h2>
+<p>The conjugate gradient (CG) method is remarkably simple but very powerful method. It is a Krylov subspace method, which is a more powerful family of the methods than the stationary methods in the previous section. The CG method is for Hermitian positive definite matrices only. There are other Krylov methods for other matrix types.
+The CG method is sometimes presented as a direct method, but is applied in practice usually as an iterative method. The reasons will be clear when we consider some of its properties.</p>
+<h3 id="conjugate-gradient-as-a-direct-method-slide-61">Conjugate gradient as a direct method [slide 61]</h3>
+<p>We wish to solve $A x = b$, where $A$ is a $n \times n$ Hermitian positive-definite matrix. Consider that we have a set $P$ of $n$ non-zero vectors that are A-conjugate:</p>
+<p>$$ P = {p_0, p_1, \dots, p_{n-1}} $$</p>
+<p>A-conjugate implies that</p>
+<p>$$ p_i^H A p_j = 0 \text{ if } i \neq j $$</p>
+<p>Since $A$ is positive definite:</p>
+<p>$$ p_i^H A p_i &gt; 0 $$</p>
+<p>Using $P$ as a basis for the solution:</p>
+<p>$$ x = \sum_{i=0}^{n-1} \alpha_i p_i $$</p>
+<p>and</p>
+<p>$$ A x = \sum_{i=0}^{n-1} \alpha_i A p_i = b $$</p>
+<p>Multiplying by $p_j^H$:</p>
+<p>$$ p_j^H A x = \sum_{i=0}^{n-1} \alpha_i p_j^H A p_i = \alpha_j p_j^H A p_j = p_j^H b $$</p>
+<p>Since the vectors in $P$ are A-conjugate:</p>
+<p>$$ \alpha_j = (p_j^H b) / (p_j^H A p_j) $$</p>
+<p>A question is how to generate the A-conjugate set $P$. A simple approach is to pick $n$ linearly-independent vectors and apply the Gram-Schmidt process to build $P$. However, this approach is not practical for large problems. Building and storing $P$ is too expensive.</p>
+<h3 id="conjugate-gradient-as-an-iterative-method-slide-62">Conjugate gradient as an iterative method [slide 62]</h3>
+<p>There is a remarkable algorithm for the CG method in which elements of $P$ are computed with a very short recurrence relation. Moreover, in many cases we do not need all of $P$; sometimes we can get a very accurate solution with few elements of $P$.
+Below is the CG algorithm. We will not prove it and you are not expected to memorise it, but it shows just how simple it is.</p>
+<p><strong>Algorithm 1</strong> Conjugate gradient method</p>
+<ol>
+<li>$x_0 = 0, r_0 = b, p_0 = r_0$</li>
+<li>for $k = 0, 1, \dots$ do</li>
+<li>$\alpha_k = (r_k^H r_k) / (p_k^H A p_k)$</li>
+<li>$x_{k+1} = x_k + \alpha_k p_k$</li>
+<li>$r_{k+1} = r_k - \alpha_k A p_k$</li>
+<li>$\beta_k = (r_{k+1}^H r_{k+1}) / (r_k^H r_k)$</li>
+<li>$p_{k+1} = r_{k+1} + \beta_k p_k$</li>
+<li>end for</li>
+</ol>
+<ul>
+<li>The only &lsquo;serious&rsquo; operations you need to perform are matrix-vector products and dot products. For very large sparse problems, these two operations are amongst the easiest when using a parallel computer.</li>
+<li>Note also that only a few work vectors need to be stored. Contrast this with LU where the factorisations must be stored.</li>
+<li>We don&rsquo;t have time to derive the method, but we do want to know some of its key properties.</li>
+</ul>
+<h3 id="convergence-slide-63">Convergence [slide 63]</h3>
+<p>There is a lot of very rich analysis for the conjugate gradient method. We present here some key results.
+Solving $A x = b$ where $A$ is an $n \times n$ matrix:</p>
+<ul>
+<li>For the error $e_k = x_{\text{exact}} - x_k$, the CG method is monotone in the A-norm: $||e_{k+1}||_A \leq ||e_k||_A$.</li>
+<li>From the preceding point, the CG method will solve the problem exactly (in the absence of round-off error) in at most $n$ iterations. This is why it is sometimes considered a direct method.</li>
+<li>The number of iterations required to solve exactly equal to the number of distinct eigenvalues of $A$.</li>
+<li>The rate of convergence is affected by the condition number $\kappa_2(A)$:</li>
+</ul>
+<p>$$ ||e_k||_A / ||e_0||_A \leq 2 ((\sqrt{\kappa_2(A)} - 1)/(\sqrt{\kappa_2(A)} + 1))^k $$</p>
+<p><strong>Example</strong>
+The monotonic convergence is demonstrated by the example in the Jupyter notebooks.</p>
+<h3 id="preconditioning-slide-64">Preconditioning [slide 64]</h3>
+<p>if the condition number of a matrix is large, the CG method may be too slow to converge for practical use. In this case, preconditioning can be attempted, where the transformed system:</p>
+<p>$$ P^{-1} A x = P^{-1} b $$</p>
+<p>This is known as &rsquo;left preconditioning&rsquo;.</p>
+<h3 id="preconditioning-idea-slide-65">Preconditioning idea [slide 65]</h3>
+<ul>
+<li>if $P^{-1} \approx A^{-1}$, the condition number of the $P^{-1} A$ will be better than $A$, and the CG method will therefore converge faster.</li>
+<li>In practice it can be a balancing act - $P^{-1}$ must be cheap to apply for efficiency, but it must be close enough to $A^{-1}$ to be effective.</li>
+<li>When it all works, preconditioned CG solvers can be orders of magnitude faster than LU factorisations, and they work much better on large, parallel computers.</li>
+</ul>
+<p><em>Complete Examples Paper question 14.</em></p>
+<h1 id="singular-value-decomposition-svd">Singular value decomposition (SVD)</h1>
+<p>Singular value decomposition (SVD) is one of the most beautiful concepts in mathematics. The definition is wonderfully simple, but the insights and applications are rich.</p>
+<h2 id="definition-and-properties">Definition and properties</h2>
+<h3 id="matrix-diagonalisation--review-slide-66">Matrix diagonalisation – review [slide 66]</h3>
+<p>The diagonalisation of real, symmetric matrices was covered in Part IA. Extending this to Hermitian matrices, for a Hermitian matrix $M \in \mathbb{C}^{n \times n}$:</p>
+<p>$$ Q^H M Q = \Lambda $$</p>
+<p>where the columns of $Q$ are the normalised (in $l_2$) eigenvectors of $M$ and $\Lambda$ is a diagonal matrix of the eigenvalues of $M$ (which are real).
+Since the eigenvectors of a Hermitian matrix are orthogonal, $Q$ is a unitary matrix, i.e. $Q^{-1} = Q^H$, and</p>
+<p>$$ M = Q \Lambda Q^H $$</p>
+<p>Matrix diagonalisation can be very helpful because we see that in a particular basis (&lsquo;co-ordinate system&rsquo;) the action of a matrix on a vector is easy to interpret. Moreover, some operations, such as matrix-matrix multiplication, become trivial.
+Whilst matrix diagonalisation is a very powerful concept it has some major limitations:</p>
+<ul>
+<li>It is only valid for square matrices;</li>
+<li>Not all matrices can be diagonalised, e.g. defective matrices; and</li>
+<li>The matrix $Q$ of normalised eigenevctors is guaranteed unitary only for Hermitian matrices.</li>
+</ul>
+<p><strong>Multplication by a diaginal matrix</strong>
+if $D$ is a diagonal matrix wih diagonal entries $d_1, \dots, d_n$, then</p>
+<p>$$ A D = (d_1 a_1, \dots, d_n a_n) $$</p>
+<p>where $a_i$ is the $i$th column of $A$.</p>
+<p><strong>Expanding the diagonalisation</strong>
+From the outer product representation of a matrix-matrix product and eq. (12), expanding eq. (11) we get</p>
+<p>$$ M = \sum_i \lambda_i u_i u_i^H $$</p>
+<p>where $(\lambda_i, u_i)$ is the $i$th eigenpair of $M$. The term $u_i u_i^H$ is a rank-1 matrix.</p>
+<p><strong>Hermitian matrices</strong>
+All Hermitian matrices can be diagonalised</p>
+<p><strong>Sign ambiguity</strong>
+Recall that eigenvectors of a matrix are not unique; it is direction that is important. Even when normalised, there persists a sign ambiguity:</p>
+<p>$$ M = Q \Lambda Q^H = (-Q) \Lambda (-Q)^H $$</p>
+<h3 id="definition-slide-67">Definition [slide 67]</h3>
+<p>The singular value decomposition of an $m \times n$ matrix $A$ is:</p>
+<p>$$ A = U \Sigma V^H $$</p>
+<p>where</p>
+<ul>
+<li>$U \in \mathbb{C}^{m \times m}$ is a unitary matrix;</li>
+<li>$\Sigma \in \mathbb{R}^{m \times n}$ is a diagonal matrix, with diagonal entries $\sigma_i$ (the &lsquo;singular values&rsquo;) sorted such that $\sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_\rho \geq 0$, where $\rho = \min(m, n)$; and</li>
+<li>$V \in \mathbb{C}^{n \times n}$ is a unitary matrix.</li>
+</ul>
+<p>if $A$ was Hermitian, then we would have $U = V = Q$, and $\Sigma = \Lambda$.</p>
+<h3 id="question-what-should-u-sigma-and-v-be-slide-68">Question: what should $U, \Sigma$ and $V$ be? [slide 68]</h3>
+<ol>
+<li>To answer part of this question, premultiply both sides of eq. (14) by $A^H$:</li>
+</ol>
+<p>$$ A^H A = (U \Sigma V^H)^H U \Sigma V^H = V \Sigma^H U^H U \Sigma V^H = V (\Sigma^H \Sigma) V^H $$</p>
+<p>Noting that $A^H A$ is Hermitian and that $\Sigma^H \Sigma$ is diagonal with entries $\sigma_1^2, \sigma_2^2, \dots, \sigma_n^2$, comparing this to the diagonalisation of a Hermition matrix in eq. (11), we see that this is just diagonalisation of the square matrix $A^H A$. Therefore:</p>
+<ul>
+<li>The columns of $V$ are the (normalised) eigenvectors of $A^H A$; and</li>
+<li>The diagonal entries of $\Sigma^H \Sigma$ are the eigenvalues of $A^H A$.</li>
+</ul>
+<p>Now post-multiplying both sides of eq. (14) by $A^H$:</p>
+<p>$$ A A^H = U \Sigma V^H (U \Sigma V^H)^H = U \Sigma V^H V \Sigma^H U^H = U (\Sigma \Sigma^H) U^H $$</p>
+<p>We now see that:</p>
+<ul>
+<li>The columns of $U$ are the (normalised) eigenvectors of $A A^H$; and</li>
+<li>The diagonal entries of $\Sigma \Sigma^H$ are the eigenvalues of $A A^H$, which are the same as the eigenvalues of $A^H A$.</li>
+</ul>
+<p>What is missing is the signs of the eigenvectors. We consider this next.
+2. Post-multiplying both sides of $A = U \Sigma V^H$ by $V$,</p>
+<p>$$ A V = U \Sigma $$</p>
+<p>which can also be expressed as</p>
+<p>$$ A v_i = \sigma_i u_i $$</p>
+<p>where $v_i$ is the $i$th column of $V$ and where $u_i$ is the $i$th column of $U$.</p>
+<h3 id="svd-definition-summary-slide-69">SVD definition: summary [slide 69]</h3>
+<ul>
+<li>The columns of $U$ are the (normalised) eigenvectors of $A A^H$;</li>
+<li>The diagonal entries of $\Sigma$ are the square roots of the eigenvalues of $A^H A$ (or, equivalently $A A^H$); and</li>
+<li>The columns of $V$ are the (normalised) eigenvectors of $A^H A$;</li>
+<li>Use $A v_i = \sigma_i u_i$ to deduce the sign for $u_i$ given $v_i$ (or vice versa); and</li>
+<li>Every matrix has a SVD, which is unique up to the signs of the eigenvectors in $U$ and $V$.</li>
+</ul>
+<p>The SVD of a Hermitian matrix is the usual eigen diagonalisation.</p>
+<h3 id="the-reduced-svd-slide-70">The reduced SVD [slide 70]</h3>
+<p>Visualising the shape of the SVD on an $m \times n$ matrix with $m &gt; n$:</p>
+<p>[Figure: Visualising the shape of the SVD]</p>
+<p>the terms below row $n$ in $\Sigma$ are always zero. This means that the last $m-n$ columns of $U$ make no contribution. In practice, the &lsquo;reduced&rsquo; SVD, in which redundant entries are removed, is typically used:</p>
+<p>[Figure: Visualising the shape of the reduced SVD]</p>
+<h3 id="computing-the-svd-example-slide-71">Computing the SVD: example [slide 71]</h3>
+<p>How to compute an SVD robustly could be an entire lecture course on its own. We will now compute an example &lsquo;by hand&rsquo; by computing eigenpairs of $A A^H$ and $A^H A$. As is often the case in linear algebra, the method by which we compute problems by hand is not the way real problems should be computed. As touched upon with least-squares methods, the normal matrix $A A^H$ is notoriously ill-conditioned. Use built-in library functions to compute an SVD.</p>
+<p>[NOTE: There appear to be inconsistencies in the OCR for the matrices on this page.]
+[The following is a direct transcription of the provided text.]</p>
+<p>Compute the SVD of the matrix $A = \begin{pmatrix} 1 &amp; 1 &amp; 0 \ 0 &amp; 1 &amp; 1 \end{pmatrix}$.</p>
+<ol>
+<li>
+<p>Compute eigenvalues/vectors of $A A^T$:
+$A A^T = \begin{pmatrix} 2 &amp; -1 \ -1 &amp; 2 \end{pmatrix}$.
+For this matrix, $\lambda_1 = 3$ and $u_1 = (1/\sqrt{2}) \begin{pmatrix} -1 \ 1 \end{pmatrix}$, and $\lambda_2 = 1$ and $u_2 = (1/\sqrt{2}) \begin{pmatrix} 1 \ 1 \end{pmatrix}$.
+Therefore $U = 1/\sqrt{2} \begin{pmatrix} -1 &amp; 1 \ 1 &amp; 1 \end{pmatrix}$ and $\Sigma = \begin{pmatrix} \sqrt{3} &amp; 0 &amp; 0 \ 0 &amp; 1 &amp; 0 \end{pmatrix}$.</p>
+</li>
+<li>
+<p>Compute eigenvalues/vectors of $A^T A$:
+$A^T A = \begin{pmatrix} 1 &amp; -1 &amp; 0 \ -1 &amp; 2 &amp; -1 \ 0 &amp; -1 &amp; 1 \end{pmatrix}$.
+For this matrix, $\lambda_1=3, u_1=(1/\sqrt{6})\begin{pmatrix} 1 \ -2 \ 1 \end{pmatrix}$, $\lambda_2=1, u_2=(1/\sqrt{2})\begin{pmatrix} -1 \ 0 \ 1 \end{pmatrix}$, and $\lambda_3=0, u_3=(1/\sqrt{3})\begin{pmatrix} 1 \ 1 \ 1 \end{pmatrix}$.</p>
+</li>
+<li>
+<p>The last column of $\Sigma$ is zero and therefore make no contribution. The reduced SVD is therefore:
+$A = 1/\sqrt{2} \begin{pmatrix} -1 &amp; 1 \ 1 &amp; 1 \end{pmatrix} \begin{pmatrix} \sqrt{3} &amp; 0 \ 0 &amp; 1 \end{pmatrix} \begin{pmatrix} 1/\sqrt{6} &amp; -2/\sqrt{6} &amp; 1/\sqrt{6} \ -1/\sqrt{2} &amp; 0 &amp; 1/\sqrt{2} \end{pmatrix}^T$</p>
+</li>
+</ol>
+<h3 id="low-rank-approximations-slide-72">Low-rank approximations [slide 72]</h3>
+<p>if we expand the SVD in eq. (14), we get</p>
+<p>$$ A = \sum_{i=1}^r \sigma_i u_i v_i^H $$</p>
+<p>where $r$ is the number of non-zero singular values, $u_i$ is the $i$th column of $U$ and $v_i$ is the $i$th column of $V$. The above is the expression of a matrix as a sum of rank-1 matrices.
+A &rsquo;low rank&rsquo; approximation of $A$ is</p>
+<p>$$ A_k = \sum_{i=1}^k \sigma_i u_i v_i^H $$</p>
+<p>where $k &lt; r$. The rank of $A_k$ is $k$, which is less than the rank of $A$ ($A_k$ has fewer linearly independent rows/columns than $A$).
+How good is $A_k$? It is possible to show that</p>
+<p>$$ ||A - A_k||<em>F = \sqrt{\sigma</em>{k+1}^2 + \dots + \sigma_r^2} \leq ||A - B||_F $$</p>
+<p>for all matrices $B$ of rank $k$ or less. This says that $A_k$ is a better approximation of $A$ than any other matrix of rank $k$, measured in the Frobenius norm.
+Similarly in the 2-norm:</p>
+<p>$$ ||A - A_k||<em>2 = \sigma</em>{k+1} \leq ||A - B||_2 $$</p>
+<p>for all matrices $B$ of rank $k$ or less. The key result is that SVD can be used to construct optimal low-rank approximations of a matrix.</p>
+<h2 id="applications-of-the-svd">Applications of the SVD</h2>
+<p>There are many applications of the SVD. Here we present just a few. All the presented examples can be found in the Jupyter notebooks.</p>
+<h3 id="finding-patterns-in-data-slide-74">Finding patterns in data [slide 74]</h3>
+<p>We can use SVD to interpret large data sets. As an example, consider a $100 \times 200$ matrix with entries that are equal to 0 or 1. The entries have been arranged in a pattern which is shown graphically below:</p>
+<p>[Figure: Matrix with a pattern]</p>
+<p>Performing a SVD of the matrix, we find ${\sigma_i} = {1.35 \times 10^2, 1.96 \times 10^1, 1.32 \times 10^1, 0, \dots, 0}$.
+This means that the matrix is rank 3, and can be represented as the sum of just three rank-1 matrices.
+We now take the same problem, and add noise (between 0 and 0.1) to the &lsquo;white&rsquo; background image:</p>
+<p>[Figure: Matrix with noise]</p>
+<p>if you look carefully you can see squares for each matrix entry (depending on print quality, you might want to look at this example on a screen).
+if we perform an SVD of the matrix with noise, the largest singular values is roughly $1.29 \times 10^2$, and the smallest is roughly $1.2 \times 10^{-1}$. Reconstructing the image using only singular values that are larger than 1 (there are three of these):</p>
+<p>[Figure: Matrix after SVD cleaning]</p>
+<p>Visually, much of the noise has been removed.</p>
+<h3 id="image-compression-slide-75">Image compression [slide 75]</h3>
+<p>Images can be represented as matrices, with one matrix entry for each pixel. The matrix entry is a number that represents an intensity. For RGB colour images, an image is represented by three such matrices - one for red, one for green and one for blue. In 24-bit colour, each colour at each pixel is represented with 8 bits, which means an integer between 0 and 255 for the colour intensity.
+An 8 megapixel digital image has $2448 \times 3264$ pixels. Storing this as an RGB matrix would require roughly 24MB. To compress the image, we could try a low-rank approximation. We can construct an approximation by computing the SVD of the image and discarding the singular values that fall below a threshold.
+Below is a photograph taken in the first lecture:</p>
+<p>[Figure 1: Original image.]</p>
+<p>We can represent the grey scale the image as a matrix with dimensions equal to the number of pixels and with float values between 0 and 1 corresponding the intensity (0=black, 1=white), or integers between 0 and 255 (0=black, 255=white).
+<strong>Singular values</strong> Performing a SVD of the image, we plot the singular values:</p>
+<p>[Figure 2: Singular values of the image.]</p>
+<p>The ratio between the largest and smallest singular values is several orders of magnitude.
+We now create a low-rank approximation of the original image by retaining only the larger singular values. if we retain the largest 10% of the singular values:</p>
+<p>[Figure 3: Compressed (left) with largest 10% of the singular values and original (right) images.]</p>
+<p>if we retain only the largest 2% of the singular values:</p>
+<p>[Figure 4: Compressed (left) with largest 2% of the singular values and original (right) images.]</p>
+<p>if we retain only the largest 0.5% of the singular values:</p>
+<p>[Figure 5: Compressed (left) with largest 0.5% of the singular values and original (right) images.]</p>
+<h3 id="effective-rank-slide-76">Effective rank [slide 76]</h3>
+<p>When taking measurements, noise is often unavoidable and this can make it hard to detect (near) linear dependencies. Consider the matrix</p>
+<p>$$ A = \begin{pmatrix} 1 &amp; 1 &amp; 1 \ 2 &amp; 2 &amp; 2 \ 1 &amp; 0 &amp; 1 \end{pmatrix} $$</p>
+<p>By inspection, this matrix is clearly rank 2. if we add noise to the matrix entries in the range $(0, 10^{-6})$:
+it becomes full rank (rank 3). In practice we would work with large data sets, so would have little chance of detecting any near linear dependencies by inspection.
+Performing an SVD on the above matrix the singular values are: 4.048, 0.7811 and $3.90 \times 10^{-7}$. The effective rank is the number of singular values that are greater than the noise level, i.e. in this case the effective rank is 2.</p>
+<h3 id="least-squares-solutions-slide-77">Least-squares solutions [slide 77]</h3>
+<p>We&rsquo;ll now do some linear algebra gymnastics to use the SVD to better understand least squares problems, including the rank deficient case.
+Recall that if the $m \times n$ matrix $A$, with $m &gt; n$, is full rank, then the least squares solution to $A x = b$ is:</p>
+<p>$$ \hat{x} = (A^H A)^{-1} A^H b = A^+ b $$</p>
+<p>where $A^+ = (A^H A)^{-1} A^H$ is the psuedoinverse.</p>
+<h3 id="full-rank-case-slide-78">Full rank case [slide 78]</h3>
+<p>if $A$ is an $m \times n$ matrix with $m &gt; n$, we can partition the SVD as:</p>
+<p>$$ A = (U_1, U_2) \begin{pmatrix} \Sigma_1 \ 0 \end{pmatrix} V^H $$</p>
+<p>Since matrix is full rank, $\Sigma_1$ will be $n \times n$, and $U_1$ is $m \times n$. Since the columns of $U$ are orthonormal, $U_1^H U_1 = I_{n \times n}$ and $U_2^H U_1 = 0_{(m-n) \times n}$. Recall that $||A x||_2 = ||U A x||_2$ when $U$ is unitary. We will use this property below.
+A least squares solution minimises:</p>
+<p>$ r = ||A x - b||_2^2 = ||U^H(A x - b)||_2^2 = ||\begin{pmatrix} \Sigma_1 V^H x - U_1^H b \ -U_2^H b \end{pmatrix}||_2^2 = ||\Sigma_1 V^H x - U_1^H b||_2^2 + ||U_2^H b||_2^2 $</p>
+<p>The residual is obviously minimised when $\Sigma_1 V^H x = U_1^H b$, i.e.</p>
+<p>$$ \hat{x} = V \Sigma_1^{-1} U_1^H b $$</p>
+<p>Both $\Sigma_1$ and $V$ are full rank, therefore the least-squares solution is unique.
+if we wish, we can add the &lsquo;zero padding&rsquo; back to $U$:</p>
+<p>$$ \hat{x} = V \Sigma^+ U^H b $$</p>
+<p>where $\Sigma^+$ is the pseudo inverse of $\Sigma$: $\Sigma^+ = \begin{pmatrix} 1/\sigma_1 &amp; \dots \ \dots &amp; 1/\sigma_n &amp; \dots \end{pmatrix}$.
+The SVD can be used to compute least-squares solutions. Compared to Cholesky factorisation of the normal matrix $A^H A$ or QR factorisation, it is the most stable.</p>
+<h3 id="relationship-to-the-normal-equations-slide-79">Relationship to the normal equations [slide 79]</h3>
+<p>if $A$ is full rank and we have a SVD of $A$:</p>
+<p>$$ A^+ = (A^H A)^{-1} A^H = (V \Sigma_1^2 V^H)^{-1} V \Sigma_1 U_1^H = V \Sigma_1^{-1} U_1^H $$</p>
+<p>This gives the least squares solution $\hat{x} = V \Sigma_1^{-1} U_1^H b = V \Sigma^+ U^H b$.</p>
+<h3 id="stability-slide-80">Stability [slide 80]</h3>
+<p>if $\hat{x} = A^+ b$ ($x \in \mathbb{C}^n$) then:</p>
+<p>$$ ||\hat{x}||_2^2 = ||\Sigma_1^{-1} U_1^H b||<em>2^2 \geq |u_n^H b|^2 / \sigma</em>{\min}^2 $$</p>
+<p>This says that if the smallest singular value $\sigma_{\min}$ is small, then the least squares solution will be large and very sensitive to changes in $b$.</p>
+<h3 id="rank-deficient-case-slide-81">Rank deficient case [slide 81]</h3>
+<p>The preceding shows that if $\sigma_{\min} = 0$, we cannot compute a unique least squares solution. In the case that $\sigma_{\min}$ is small, while we can compute a solution, $||x||_2$ can become very large with small changes in $b$, which is not very satisfactory either.
+For a problem with zero singular values, consider a partitioning of the SVD:</p>
+<p>$$ A = (U_1, U_2) \begin{pmatrix} \Sigma_1 &amp; 0 \ 0 &amp; 0 \end{pmatrix} (V_1, V_2)^H $$</p>
+<p>where $\Sigma_1$ has size $r \times r$. It follows that</p>
+<p>$$ A = U_1 \Sigma_1 V_1^H $$</p>
+<p>Examining the least-squares residual (recall that we can apply $(U_1, U_2)^H$ to $A x - b$ and it will not change the $l_2$ norm):</p>
+<p>$$ ||A x - b||_2^2 = ||\Sigma_1 V_1^H x - U_1^H b||_2^2 + ||U_2^H b||_2^2 $$</p>
+<p>It is clear that $||A x - b||_2$ is minimised when $\Sigma_1 V_1^H x = U_1^H b$.
+For the full rank case, we worked with $V^H$, which has only the trivial nullspace. However, we now work with $V_1^H$, which is only part of $V^H$, and the matrix $V_1^H$ consequently has a non-trivial nullspace. Specifically, we have $V_1^H(V_2 z) = 0$ for all $z \in \mathbb{C}^{n-r}$ since the columns of $V_1$ and $V_2$ are orthogonal. The result is that there are an infinite number of solutions $\hat{x}$ that satisfy $\Sigma_1 V_1^H x = U_1^H b$.
+Since vectors $V_2 z$ lie in the nullspace of $V_1^H$, we have that</p>
+<p>$$ \hat{x} = V_1 \Sigma_1^{-1} U_1^H b + V_2 z $$</p>
+<p>for all $z \in \mathbb{C}^{n-r}$ is a solution to the least squares problem. Taking the norm of the above expression and exploiting that $V_1$ and $V_2$ are orthogonal with respect to each other:</p>
+<p>$$ ||\hat{x}||_2^2 = ||V_1 \Sigma_1^{-1} U_1^H b||_2^2 + ||V_2 z||_2^2 $$</p>
+<p>Therefore</p>
+<p>$$ \hat{x} = V_1 \Sigma_1^{-1} U_1^H b $$</p>
+<p>is the minimiser to the least-squares problem with minimal $l_2$ norm. In other words, of the all the solutions to the least squares problem, $\hat{x}$ is the smallest in the $l_2$ norm.</p>
+<h3 id="fitting-points-and-singular-systems-slide-82">Fitting points and singular systems [slide 82]</h3>
+<p>Say we are given four data points that depend on $x$ and $y$, and we are asked to fit a polynomial of the form</p>
+<p>$$ f(x, y) = c_{00} + c_{10} x + c_{01} y + c_{11} x y $$</p>
+<p>to the data points. Normally, we would expect to be able to fit the above polynomial to four data points by interpolation, i.e. solving $A c = f$ where $A$ a square Vandermonde matrix. However, if the points happen to lie on a line, then $A$ will be singular. if the points happen to lie almost on a line, then $A$ will be almost singular.
+A possibility is to exclude zero or small singular values from the process, thereby finding a least-squares fit with minimal $||c||_2$. We test this for the data set $f_1(1,0)=3, f_2(2,0)=5, f_3(3,0)=7, f_4(4,0)=9$. The data lies on the line $y=0$, and is in fact is linear in $x$.
+To find the polynomial coefficients we want to solve $A c = f$. For the points in the data set we have:</p>
+<p>$$ A = \begin{pmatrix} 1 &amp; 1 &amp; 0 &amp; 0 \ 1 &amp; 2 &amp; 0 &amp; 0 \ 1 &amp; 3 &amp; 0 &amp; 0 \ 1 &amp; 4 &amp; 0 &amp; 0 \end{pmatrix} $$</p>
+<p>which is clearly singular. We could try a least-squares fit by solving $A^T A c = A^T f$, but $A^T A$ is singular.
+if we perform an SVD of $A$ and compute $c = V \Sigma^+ U^T f$, we get</p>
+<p>$$ f(x, y) = 1 + 2x $$</p>
+<p>which in fact interpolates the points.
+See the Jupyter notebook for the steps.</p>
+<h3 id="example-fitting-with-nearly-singular-systems-slide-83">Example: fitting with nearly singular systems [slide 83]</h3>
+<p>if we take the previous example and add a small amount of noise $\epsilon \in (-5 \times 10^{-4}, +5 \times 10^{-4})$ to $x_i, y_i$ and $f_i$, the Vandermonde matrix is no longer singular and can be used to compute an interpolating polynomial. For some noise, we find that</p>
+<p>$$ f(x, y) = 1.00365037 + 1.99853161x - 5.16321091y + 2.40001974 x y $$</p>
+<p>The coefficients of the $y$ and $x y$ terms are suddenly significant, and this is due only to the noise.
+if we compute and SVD and ignore singular values less than $10^{-3}$, we get:</p>
+<p>$$ f(x, y) = 0.999257206 + 2.00013498x + 6.49882602 \times 10^{-4} y + 1.13588861 \times 10^{-3} x y $$</p>
+<p>which is a more reasonable fit and very close to the noise-free case. See the Jupyter notebook for the steps.</p>
+<p><em>Complete Examples Paper questions 15, 16, 17 and 18.</em></p>
+<h1 id="principal-component-analysis-pca">Principal component analysis (PCA)</h1>
+<h3 id="what-is-principal-component-analysis-pca-slide-84">What is principal component analysis (PCA)? [slide 84]</h3>
+<p>PCA is a dimension reduction technique.</p>
+<ul>
+<li>From a dataset, it attempts to find new, uncorrelated variables</li>
+<li>The &rsquo;new&rsquo; variables are the directions along which the variance in the data is greatest</li>
+<li>Effectively, data is transformed/rotated (linearly) to a new coordinate systems, with the new coordinates ordered starting with the direction of greatest variation.</li>
+<li>Geometric interpretation: fits a (hyper-)ellipse to a dataset, the principal axes are the directions with the greatest variance (in descending order, starting from the longest).</li>
+<li>It finds linear subspaces – works well when &lsquo;good&rsquo; new variables can be defined as linear combinations of the original variables.</li>
+</ul>
+<h3 id="example-problem-arms-and-legs-slide-85">Example problem: arms and legs [slide 85]</h3>
+<p>Consider arm and leg length measurements for a group of $n$ people. We have $n$ samples and $p=2$ variates (arm length and leg length). Putting the data in a $n \times p$ matrix $X$.
+Intuitively we would expect a strong correlation between arm and leg length. We can use PCA to uncover this.</p>
+<h3 id="arms-and-legs-coordinates-slide-86">Arms and legs: coordinates [slide 86]</h3>
+<ul>
+<li>We want to find directions in our 2D space (arm length, leg length) along which the variance is greatest. if there is one dominant direction we could reduce the number of parameters from 2 to 1.</li>
+<li>The component of the point $(X_{i1}, X_{i2})$ in the direction $a$, where $||a||<em>2 = 1$ is $d_i = (X</em>{i1}, X_{i2}) (a_1, a_2)^T$ (in the $l_2$-norm). if $d_i$ varies significantly as we move in the $(a_1, a_2)$ direction, then a coordinate in that direction is a good candidate for an independent variable in the problem.</li>
+</ul>
+<h3 id="arms-and-legs-perfect-data-slide-87">Arms and legs: perfect data [slide 87]</h3>
+<p>Imagine a dataset where $l_{\text{arm}}$ is the arm length and $l_{\text{leg}} = \alpha l_{\text{arm}}$, where $\alpha &gt; 0$ is a constant. For each person we have the measurements $(l_{\text{arm}}, \alpha l_{\text{arm}})$. All points are spread along the line in the $(1, \alpha)$ direction.
+In the orthogonal direction $(-\alpha, 1)$, there is no change in the data.
+In practice data will have noise, correlations will no be perfect, and higher-dimensional problems cannot be easily visualised.</p>
+<h3 id="arms-and-legs-variance-slide-88">Arms and legs: variance [slide 88]</h3>
+<p>Generalising $d_i = (X_{i1}, X_{i2}) (a_1, a_2)^T$, the component of each sample is the $a$ direction is:</p>
+<p>$$ d = X a $$</p>
+<p>The aim will be to find the direction $a$ that maximises the variance of $d$.
+PCA finds the orthogonal directions $a_i$, from greatest to least variance.</p>
+<h3 id="covariance-matrix-slide-89">Covariance matrix [slide 89]</h3>
+<p>Let $X \in \mathbb{R}^p$ be a random vector. The (co)variance matrix is:</p>
+<p>$$ \text{var}(X) := E((X - \mu)(X - \mu)^T) $$</p>
+<p>The covariance matrix has shape $p \times p$. It is symmetric and positive-semidefinite.</p>
+<h3 id="sample-data-slide-90">Sample data [slide 90]</h3>
+<p>Imagine that we have samples for $n$ entities/people, and for each entity/person we have $p$ variates (measurement variables), e.g. arm length and leg length for each person.
+Collecting the data in a $n \times p$ matrix $X$. Each column corresponds to a particular variate (measurement). Each row corresponds to a sample (person).</p>
+<h3 id="sample-mean-slide-91">Sample mean [slide 91]</h3>
+<p>For each variate (measurement type) $j$:</p>
+<p>$$ \bar{x}<em>j := 1/n \sum</em>{i=1}^n X_{ij} $$</p>
+<p>where $n$ is the number of samples and $\bar{x}$ is the sample mean of each column of $X$. Using matrix notation:</p>
+<p>$$ \bar{x} = 1/n X^T 1_n $$</p>
+<p>where $1_n$ is column vector of ones with length $n$.
+The $j$th entry in $\bar{x}$ is the sample mean of the $j$th column of the matrix $X$.</p>
+<h3 id="sample-covariance-matrix-slide-92">Sample covariance matrix [slide 92]</h3>
+<p>The sample covariance matrix $S$ ($p \times p$) is given by:</p>
+<p>$$ S_{jk} := 1/(n-1) \sum_{i=1}^n (X_{ij} - \bar{x}<em>j)(X</em>{ik} - \bar{x}_k) $$</p>
+<p>In terms of the sample matrix $X$, the sample covariance matrix is given by:</p>
+<p>$$ S = 1/(n-1) (X - 1_n \bar{x}^T)^T (X - 1_n \bar{x}^T) $$</p>
+<h3 id="sample-mean-and-variance-of-the-data-slide-93">Sample mean and variance of the data [slide 93]</h3>
+<p>Recall that $d = X a$ is the change in the data (variates) for each sample in the direction of $a$. We want to find the direction $a$ in which the variance of the entries of $d$ is greatest.
+Sample mean of $d = X a$:</p>
+<p>$$ \bar{d} = 1/n 1_n^T X a = a^T \bar{x} $$</p>
+<p>Sample variance of $d = X a$:</p>
+<p>$$ q := 1/(n-1) \sum_{i=1}^n ((X a)_i - \bar{d})^2 = a^T S a $$</p>
+<h3 id="simple-expression-for-the-sample-covariance-slide-94">Simple expression for the sample covariance [slide 94]</h3>
+<p>Adjusting $X$ to make it column centred, i.e. the columns of $X$ have zero mean, $\tilde{X} = X - 1_n \bar{x}^T$, gives a simple expression for the sample covariance matrix:</p>
+<p>$$ (n-1)S = \tilde{X}^T \tilde{X} $$</p>
+<p>and the sample variance of $d$ becomes</p>
+<p>$$ q = 1/(n-1) a^T \tilde{X}^T \tilde{X} a $$</p>
+<p>Introducing the centering matrix $C_n = I_{n \times n} - 1/n 1_n 1_n^T$, we have $\tilde{X} = C_n X$.</p>
+<h3 id="maximising-variance-slide-95">Maximising variance [slide 95]</h3>
+<ul>
+<li>Given the restriction $||a||_2 = 1$, we know that the sample variance $a^T S a$ is maximised when $a$ is aligned with the eigenvector associated with the largest eigenvalue of $S$.</li>
+<li>The eigenvalues of $(n-1)S$ are the singular values of $\tilde{X}$ (the multiplier $(n-1)$ is of no consequence since were interested in the relative sizes of the singular values).</li>
+<li>From $(n-1)S = \tilde{X}^T \tilde{X} = V \Sigma^T \Sigma V^T$, the matrix $V$ rotates the data to a &rsquo;new&rsquo; coordinate system, ordered by decreasing variance.</li>
+<li>PCA is an eigen decomposition (diagonalisation) of $\tilde{X}^T \tilde{X}$.</li>
+<li>SVD algorithms are used to compute the singular values of $\tilde{X}$ and the eigenvectors $V$ without having to form $\tilde{X}^T \tilde{X}$.</li>
+</ul>
+<p>See Jupyter notebooks for an application of PCA.</p>
+<hr>
+<h1 id="stochastic-processes">Stochastic Processes</h1>
+<h2 id="finite-state-space-markov-chains">Finite State-Space Markov Chains</h2>
+<h3 id="overview">Overview</h3>
+<ul>
+<li>This part of the course will focus of Markov Chains and related applications</li>
+<li>Course has three parts
+<ul>
+<li>finite-space Markov chains: 2 lectures</li>
+<li>continuous state-space systems: 1.5 lectures</li>
+<li>Monte Carlo Markov chains: 1.5 lectures</li>
+</ul>
+</li>
+<li>Handouts available from 3M1 web-site</li>
+<li>Insufficient time to examine all topics in detail
+<ul>
+<li>useful starting point for 4th year modules</li>
+</ul>
+</li>
+</ul>
+<h3 id="applications-of-markov-chains">Applications of Markov Chains</h3>
+<ul>
+<li>Markov Chains under-pin the work in many areas
+<ul>
+<li>Google Page ranker (very large Markov chain!)</li>
+<li>Information theory (Entropy)</li>
+<li>Speech and Language Processing (acoustic models/language models)</li>
+<li>Physics (statistical mechanics/thermodynamics)</li>
+<li>Economics and finance (asset pricing)</li>
+<li>Queueing theory</li>
+</ul>
+</li>
+</ul>
+<h3 id="pushkins">Pushkin&rsquo;s</h3>
+
+    </div>
+</body>
+</html>
+    <button class="back" onclick="history.back()">back</button>
+</body>
+</html>
