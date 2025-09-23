@@ -11,9 +11,9 @@ Some things I find interesting are:
 - Combinatorial optimisation
 - Approximate inference
 - Graphical models
-- Energy-based models
+- Symmetries
 - Inverse problems
-- Causal inference
+- Energy-based models
 - Graph neural networks
 - The renormalisation group
 
