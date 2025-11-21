@@ -2,21 +2,11 @@
 layout: "about"
 ---
 
-I work on complex systems, which is about understanding how
-simple interacting elements give rise to emergent phenomena that cannot be explained by components in isolation. To do this, I use methods from statistical physics, Bayesian machine learning and network theory.
+I work on probabilistic inference, especially with graph data and higher-order generalisations.
 
-Some things I find interesting are:
-- Spin models
-- Belief propagation
-- Combinatorial optimisation
-- Approximate inference
-- Graphical models
-- Symmetries
-- Inverse problems
-- Energy-based models
-- Graph neural networks
-- The renormalisation group
+I am a second year PhD student in the [**Probabilistic Systems, Information and Inference Group**](https://psi2.eng.cam.ac.uk/) at the University of Cambridge working under [**Dr. George Cantwell**](https://www.george-cantwell.com/) and [**Prof. Ramji Venkataramanan**](https://rv285.github.io/). My background is in theoretical physics.
 
-I am a first year PhD student in the **Probabilistic Systems, Information and Inference Group** at the University of Cambridge. I have a background in theoretical physics.
+Some things I find _cool_:
+Spin models, Belief propagation, Combinatorial optimisation, Approximate inference, Graphical models, Inverse problems, Energy-based models, Graph neural networks, The renormalisation group.
 
-jbg39 [at] cam [dot] ac [dot] uk
+jbg39@cam.ac.uk
