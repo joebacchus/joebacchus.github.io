@@ -63,6 +63,10 @@ hr {
     border-width: 0.5px;
 }
 
+h1 {
+    font-weight: 400;
+}
+
 h2{
     font-weight: 400;
     text-align: center;
