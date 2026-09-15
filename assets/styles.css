@@ -165,6 +165,16 @@ p a {
     border-top: var(--foreground) var(--lines) solid;
 }
 
+@media (max-width: 799px) {
+    .front-board {
+        display: none;
+    }
+
+    .fan {
+        padding-bottom: 0;
+    }
+}
+
 .front-board::before {
     content: "";
     position: absolute;
