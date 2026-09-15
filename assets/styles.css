@@ -165,7 +165,7 @@ p a {
     border-top: var(--foreground) var(--lines) solid;
 }
 
-@media (max-width: 799px) {
+@media (max-height: 800px) {
     .front-board {
         display: none;
     }
